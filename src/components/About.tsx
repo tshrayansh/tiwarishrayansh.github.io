@@ -8,7 +8,7 @@ export const About: React.FC = () => {
         <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-800 dark:text-emerald-500 font-semibold">
           Biography
         </span>
-        <h2 className="font-geist text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
+        <h2 className="font-serif text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
           My Story
         </h2>
       </div>
@@ -17,7 +17,7 @@ export const About: React.FC = () => {
         {aboutData.storyParagraphs.map((paragraph, index) => (
           <p 
             key={index}
-            className="text-xs md:text-sm text-slate-500 dark:text-zinc-400 font-light leading-relaxed text-justify"
+            className="font-serif text-[14px] md:text-[15px] text-zinc-700 dark:text-zinc-300 leading-relaxed text-justify tracking-normal"
           >
             {paragraph}
           </p>
