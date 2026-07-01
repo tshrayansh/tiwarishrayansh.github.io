@@ -18,25 +18,72 @@ import { Footer } from './components/Footer';
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white text-slate-700 dark:bg-slate-950 dark:text-slate-300 transition-colors duration-300">
+      <div className="min-h-screen bg-slate-50 text-slate-600 dark:bg-slate-950 dark:text-zinc-400 transition-colors duration-200">
         
         {/* Sticky Scrollspy Navbar */}
         <Navbar />
 
         {/* Main Content Layout Container */}
-        <main className="mx-auto max-w-5xl px-6 md:px-8 space-y-4">
+        <main className="mx-auto max-w-5xl px-6 md:px-8 space-y-20 py-10">
+          
+          {/* Hero Section */}
           <Hero />
-          <About />
-          <Interests />
-          <Projects />
-          <Experience />
-          <Timeline />
-          <Skills />
-          <Publications />
-          <Running />
-          <Writing />
-          <Resume />
-          <Contact />
+
+          {/* About & Interests Column-Group */}
+          <section id="about" className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            <div className="lg:col-span-6">
+              <About />
+            </div>
+            <div id="interests" className="lg:col-span-6">
+              <Interests />
+            </div>
+          </section>
+
+          {/* Research & Projects Section */}
+          <section id="projects" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            <Projects />
+          </section>
+
+          {/* Experience & Timeline Column-Group */}
+          <section id="experience" className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            <div className="lg:col-span-6">
+              <Experience />
+            </div>
+            <div id="timeline" className="lg:col-span-6">
+              <Timeline />
+            </div>
+          </section>
+
+          {/* Skills Section */}
+          <section id="skills" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            <Skills />
+          </section>
+
+          {/* Printable Resume & Publications Column-Group */}
+          <section id="publications" className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            <div id="resume" className="lg:col-span-5">
+              <Resume />
+            </div>
+            <div className="lg:col-span-7">
+              <Publications />
+            </div>
+          </section>
+
+          {/* Running Dashboard Section */}
+          <section id="running" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            <Running />
+          </section>
+
+          {/* Writing Section */}
+          <section id="writing" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            <Writing />
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            <Contact />
+          </section>
+
         </main>
 
         {/* Global Minimalist Footer */}

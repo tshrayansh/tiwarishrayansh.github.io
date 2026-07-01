@@ -18,7 +18,8 @@
     { "name": "Vetal Tekdi Hill Loop", "distance": "8.5 km", "elevation": "210m", "terrain": "Trail / Rocky" },
     { "name": "Pashan Lake Path", "distance": "6.0 km", "elevation": "15m", "terrain": "Flat Dirt" }
   ],
-  "stravaEmbedIframe": "https://shared-activity-feed-placeholder.html",
+  "stravaLatestRidesUrl": "https://www.strava.com/athletes/136768982/latest-rides/5a4225d8f5636085dbc6fc16cefd4c475b406031",
+  "stravaActivitySummaryUrl": "https://www.strava.com/athletes/136768982/activity-summary/5a4225d8f5636085dbc6fc16cefd4c475b406031",
   "stravaClubUrl": "https://www.strava.com/clubs/ascent-run-club",
   "ascentRunClub": {
     "name": "Ascent Run Club",
