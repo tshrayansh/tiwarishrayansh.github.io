@@ -1,82 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-/* Configure Class-based Dark Mode variant for Tailwind v4 */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Font Family Definitions */
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-geist: 'Geist', 'Inter', sans-serif;
-  --font-mono: 'IBM Plex Sans', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-  --font-manrope: 'Manrope', sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-geist: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', 'IBM Plex Sans', monospace;
 
-  /* Color Customizations - Linear/Vercel Premium Palette */
-  --color-primary-light: #fafafc; /* Warm, clean light grey background */
-  --color-secondary-light: #ffffff; /* Pure white card background */
-  --color-text-light-base: #52525b; /* zinc-600 */
-  --color-text-light-heading: #09090b; /* zinc-950 */
-  
-  --color-primary-dark: #09090b; /* zinc-950 obsidian background */
-  --color-secondary-dark: #121215; /* Slate-dark card background */
-  --color-text-dark-base: #a1a1aa; /* zinc-400 */
-  --color-text-dark-heading: #f4f4f5; /* zinc-100 */
+  /* Premium Academic Monochrome Palette with Cobalt/Emerald Accents */
+  --color-bg-light: #fafafa;
+  --color-card-light: #ffffff;
+  --color-border-light: #e4e4e7; /* zinc-200 */
+  --color-text-light-primary: #09090b; /* zinc-950 */
+  --color-text-light-secondary: #52525b; /* zinc-600 */
 
-  /* Muted Accents */
-  --color-accent-blue: #1890ff; /* Muted academic blue */
-  --color-accent-blue-light: #e6f7ff;
-  --color-accent-blue-dark: #0050b3;
+  --color-bg-dark: #09090b; /* Pitch black */
+  --color-card-dark: #121215; /* Slate obsidian */
+  --color-border-dark: #27272a; /* zinc-800 */
+  --color-text-dark-primary: #f4f4f5; /* zinc-100 */
+  --color-text-dark-secondary: #a1a1aa; /* zinc-400 */
 
-  --color-accent-green: #2d6a4f; /* Muted sage/forest green */
-  --color-accent-green-bg: #e8f5e9;
-  --color-accent-green-dark: #1b4332;
+  /* Accents */
+  --color-accent-blue: #3b82f6;
+  --color-accent-green: #10b981;
 }
 
-/* Custom Scrollbar Styles */
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 10px;
+}
 .dark ::-webkit-scrollbar-thumb {
   background: #27272a;
-  border-radius: 6px;
 }
-
-::-webkit-scrollbar-thumb {
-  background: #e4e4e7;
-  border-radius: 6px;
-}
-
 ::-webkit-scrollbar-thumb:hover {
   background: #a1a1aa;
 }
 
-/* Smooth Scrolling and Font Smoothing */
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Scientific Dotted Grid Backdrop */
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-primary-light);
-  color: var(--color-text-light-base);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light-secondary);
+  background-image: radial-gradient(#e4e4e7 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
 
 .dark body {
-  background-color: var(--color-primary-dark);
-  color: var(--color-text-dark-base);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark-secondary);
+  background-image: radial-gradient(#1f1f23 1.2px, transparent 1.2px);
 }
 
-/* Scroll Padding for Sticky Navbar */
+/* Scroll Offset for Sticky floating Navbar */
 html {
-  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Bento Styling Utilities */
+.bento-card {
+  position: relative;
+  background-color: var(--color-card-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dark .bento-card {
+  background-color: var(--color-card-dark);
+  border: 1px solid var(--color-border-dark);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.bento-card:hover {
+  border-color: #a1a1aa;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dark .bento-card:hover {
+  border-color: #52525b;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.4);
 }
