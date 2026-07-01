@@ -4,93 +4,65 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-geist: 'Geist', sans-serif;
-  --font-mono: 'Geist Mono', 'IBM Plex Sans', monospace;
+  --font-mono: 'Geist Mono', monospace;
 
-  /* Premium Academic Monochrome Palette with Cobalt/Emerald Accents */
-  --color-bg-light: #fafafa;
+  /* Timeless Editorial Monochrome Palette */
+  --color-bg-light: #ffffff; /* Pure white */
   --color-card-light: #ffffff;
-  --color-border-light: #e4e4e7; /* zinc-200 */
-  --color-text-light-primary: #09090b; /* zinc-950 */
-  --color-text-light-secondary: #52525b; /* zinc-600 */
+  --color-border-light: #eaeaea; /* Very light grey */
+  --color-text-light-primary: #111111; /* Off-black */
+  --color-text-light-secondary: #555555; /* Soft dark grey */
 
-  --color-bg-dark: #09090b; /* Pitch black */
-  --color-card-dark: #121215; /* Slate obsidian */
-  --color-border-dark: #27272a; /* zinc-800 */
-  --color-text-dark-primary: #f4f4f5; /* zinc-100 */
-  --color-text-dark-secondary: #a1a1aa; /* zinc-400 */
+  --color-bg-dark: #0a0a0a; /* Pitch black */
+  --color-card-dark: #121212;
+  --color-border-dark: #222222; /* Muted dark grey border */
+  --color-text-dark-primary: #f5f5f7; /* Soft white */
+  --color-text-dark-secondary: #999999; /* Muted silver-grey */
 
-  /* Accents */
-  --color-accent-blue: #3b82f6;
-  --color-accent-green: #10b981;
+  /* Earthy Sage Green as the ONLY subtle accent color */
+  --color-accent-green: #2d5a27; /* Deep sage green */
+  --color-accent-green-bg: #f4f9f4;
+  --color-accent-green-dark: #1c3d18;
 }
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
-  border-radius: 10px;
+  background: #eaeaea;
+  border-radius: 4px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #222222;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #a1a1aa;
 }
 
-/* Scientific Dotted Grid Backdrop */
+/* Solid Background, Elegant typography, and Font Smoothing */
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg-light);
   color: var(--color-text-light-secondary);
-  background-image: radial-gradient(#e4e4e7 1.2px, transparent 1.2px);
-  background-size: 24px 24px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   overflow-x: hidden;
 }
 
 .dark body {
   background-color: var(--color-bg-dark);
   color: var(--color-text-dark-secondary);
-  background-image: radial-gradient(#1f1f23 1.2px, transparent 1.2px);
 }
 
-/* Scroll Offset for Sticky floating Navbar */
+/* Scroll Offset for Navbar */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  scroll-padding-top: 5rem;
   -webkit-font-smoothing: antialiased;
-}
-
-/* Custom Bento Styling Utilities */
-.bento-card {
-  position: relative;
-  background-color: var(--color-card-light);
-  border: 1px solid var(--color-border-light);
-  border-radius: 16px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.dark .bento-card {
-  background-color: var(--color-card-dark);
-  border: 1px solid var(--color-border-dark);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-}
-
-.bento-card:hover {
-  border-color: #a1a1aa;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
-}
-
-.dark .bento-card:hover {
-  border-color: #52525b;
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.4);
 }

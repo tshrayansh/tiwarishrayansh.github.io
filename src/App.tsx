@@ -18,19 +18,19 @@ import { Footer } from './components/Footer';
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-slate-50 text-slate-600 dark:bg-slate-950 dark:text-zinc-400 transition-colors duration-200">
+      <div className="min-h-screen transition-colors duration-200">
         
-        {/* Sticky Scrollspy Navbar */}
+        {/* Sticky floating Navbar */}
         <Navbar />
 
         {/* Main Content Layout Container */}
-        <main className="mx-auto max-w-5xl px-6 md:px-8 space-y-20 py-10">
+        <main className="mx-auto max-w-5xl px-6 md:px-8 space-y-16 py-10">
           
           {/* Hero Section */}
           <Hero />
 
           {/* About & Interests Column-Group */}
-          <section id="about" className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+          <section id="about" className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-8 border-t border-slate-100 dark:border-zinc-900/60">
             <div className="lg:col-span-6">
               <About />
             </div>
@@ -40,12 +40,12 @@ const App: React.FC = () => {
           </section>
 
           {/* Research & Projects Section */}
-          <section id="projects" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+          <section id="projects" className="pt-8 border-t border-slate-100 dark:border-zinc-900/60">
             <Projects />
           </section>
 
           {/* Experience & Timeline Column-Group */}
-          <section id="experience" className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+          <section id="experience" className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-8 border-t border-slate-100 dark:border-zinc-900/60">
             <div className="lg:col-span-6">
               <Experience />
             </div>
@@ -55,12 +55,12 @@ const App: React.FC = () => {
           </section>
 
           {/* Skills Section */}
-          <section id="skills" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+          <section id="skills" className="pt-8 border-t border-slate-100 dark:border-zinc-900/60">
             <Skills />
           </section>
 
           {/* Printable Resume & Publications Column-Group */}
-          <section id="publications" className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+          <section id="publications" className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-8 border-t border-slate-100 dark:border-zinc-900/60">
             <div id="resume" className="lg:col-span-5">
               <Resume />
             </div>
@@ -70,17 +70,17 @@ const App: React.FC = () => {
           </section>
 
           {/* Running Dashboard Section */}
-          <section id="running" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+          <section id="running" className="pt-8 border-t border-slate-100 dark:border-zinc-900/60">
             <Running />
           </section>
 
           {/* Writing Section */}
-          <section id="writing" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+          <section id="writing" className="pt-8 border-t border-slate-100 dark:border-zinc-900/60">
             <Writing />
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+          <section id="contact" className="pt-8 border-t border-slate-100 dark:border-zinc-900/60">
             <Contact />
           </section>
 

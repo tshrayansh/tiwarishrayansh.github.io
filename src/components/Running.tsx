@@ -4,46 +4,103 @@ import { FiTrendingUp, FiMapPin, FiCalendar, FiHeart, FiInstagram } from 'react-
 
 export const Running: React.FC = () => {
   return (
-    <section id="running" className="py-20 border-t border-slate-100 dark:border-slate-900 transition-colors">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {/* Title & Philosophy Column (Left) */}
-        <div className="lg:col-span-4 text-left space-y-6">
-          <div className="space-y-2">
-            <span className="font-mono text-[10px] tracking-wider text-green-700 dark:text-green-500 uppercase px-2 py-0.5 bg-green-50 dark:bg-green-950/30 rounded font-semibold">
-              Athletic Pursuit
-            </span>
-            <h2 className="font-geist text-3xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
-              Endurance &amp; Flow
-            </h2>
-          </div>
-          
-          <p className="text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+    <div className="py-12 space-y-12 text-left">
+      {/* Header and Philosophy */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-slate-100 dark:border-zinc-900/60 pb-6">
+        <div className="lg:col-span-4 space-y-1.5">
+          <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-800 dark:text-emerald-500 font-semibold">
+            Athletic pursuit
+          </span>
+          <h2 className="font-geist text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
+            Endurance &amp; Community
+          </h2>
+        </div>
+        <div className="lg:col-span-8">
+          <p className="text-sm md:text-base text-slate-500 dark:text-zinc-400 font-light leading-relaxed">
             {runningData.runningPhilosophy}
           </p>
+        </div>
+      </div>
 
-          {/* Ascent Run Club Panel */}
-          <div className="p-6 rounded-xl border border-slate-200/60 bg-white dark:border-slate-800/80 dark:bg-slate-950 space-y-4 shadow-sm">
-            <div>
-              <h3 className="font-geist text-sm font-bold text-slate-900 dark:text-slate-100">
-                {runningData.ascentRunClub.name}
-              </h3>
-              <p className="text-xs text-slate-400 dark:text-slate-500 font-mono mt-0.5">
-                Community Running Collective
-              </p>
+      {/* Main Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        {/* Left Side: Stats and Details */}
+        <div className="lg:col-span-5 space-y-8">
+          {/* Personal Bests */}
+          <div className="space-y-3">
+            <h3 className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 flex items-center gap-1.5">
+              <FiTrendingUp className="h-4.5 w-4.5" />
+              Personal Bests
+            </h3>
+            <div className="divide-y divide-slate-100 dark:divide-zinc-900/60 font-mono text-xs">
+              {runningData.personalBests.map((pb, idx) => (
+                <div key={idx} className="flex justify-between py-2 first:pt-0 last:pb-0">
+                  <span className="text-slate-500 dark:text-zinc-400">{pb.distance}</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">{pb.time}</span>
+                </div>
+              ))}
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+          </div>
+
+          {/* Current Goals */}
+          <div className="space-y-3">
+            <h3 className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 flex items-center gap-1.5">
+              <FiCalendar className="h-4.5 w-4.5" />
+              Current Goals
+            </h3>
+            <div className="space-y-2 text-xs">
+              {runningData.currentGoals.map((goal, idx) => (
+                <div key={idx} className="flex justify-between items-center bg-slate-50/50 dark:bg-zinc-900/10 p-2.5 rounded border border-slate-100 dark:border-zinc-900/40">
+                  <div>
+                    <p className="font-semibold text-slate-900 dark:text-slate-100">{goal.title}</p>
+                    <p className="text-[9px] font-mono text-slate-400 dark:text-zinc-500 mt-0.5">Target: {goal.target}</p>
+                  </div>
+                  <span className="font-mono text-[8px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-emerald-50 border border-emerald-150 text-emerald-800 dark:bg-emerald-950/20 dark:border-emerald-900/50 dark:text-emerald-400">
+                    {goal.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Favorite Routes */}
+          <div className="space-y-3">
+            <h3 className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 flex items-center gap-1.5">
+              <FiMapPin className="h-4.5 w-4.5" />
+              Favorite Routes
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              {runningData.favoriteRoutes.map((route, idx) => (
+                <div key={idx} className="p-3 bg-slate-50/50 dark:bg-zinc-900/10 rounded border border-slate-100 dark:border-zinc-900/40 space-y-1">
+                  <p className="font-semibold text-slate-900 dark:text-slate-50">{route.name}</p>
+                  <div className="flex gap-3 text-[10px] font-mono text-slate-400 dark:text-zinc-500">
+                    <span>{route.distance}</span>
+                    <span>+{route.elevation}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Ascent Run Club Info */}
+          <div className="p-5 rounded-lg border border-slate-200/50 bg-slate-50/10 dark:border-zinc-900/60 dark:bg-zinc-950/10 space-y-3">
+            <h3 className="font-geist text-xs font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider font-mono">
+              {runningData.ascentRunClub.name}
+            </h3>
+            <p className="text-[11px] text-slate-500 dark:text-zinc-400 font-light leading-relaxed">
               {runningData.ascentRunClub.whyStarted}
             </p>
-            <div className="text-xs font-mono text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/60 p-3 rounded border border-slate-200/20 dark:border-slate-800/20">
-              <span className="font-bold text-slate-700 dark:text-slate-300">Schedule:</span>
-              <p className="mt-1">{runningData.ascentRunClub.weeklyRuns}</p>
+            <div className="text-[10px] font-mono text-slate-550 dark:text-zinc-500">
+              <span className="font-bold text-slate-700 dark:text-zinc-350">Schedule: </span>
+              {runningData.ascentRunClub.weeklyRuns}
             </div>
-            <div className="flex gap-4 pt-1 text-xs">
+            <div className="flex gap-4 pt-1 text-[10px] font-mono font-bold uppercase tracking-wider">
               <a
                 href={runningData.ascentRunClub.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 cursor-pointer"
+                className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-900 dark:hover:text-slate-150 cursor-pointer"
               >
                 <FiInstagram className="h-3.5 w-3.5" />
                 Instagram
@@ -52,138 +109,58 @@ export const Running: React.FC = () => {
                 href={runningData.stravaClubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-wider text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 cursor-pointer"
+                className="inline-flex items-center gap-1 text-slate-400 hover:text-slate-900 dark:hover:text-slate-150 cursor-pointer"
               >
-                <FiHeart className="h-3.5 w-3.5 text-red-500" />
+                <FiHeart className="h-3.5 w-3.5" />
                 Strava Club
               </a>
             </div>
           </div>
         </div>
 
-        {/* Dashboard Grid Column (Right) */}
-        <div className="lg:col-span-8 text-left space-y-8">
-          {/* Top stats block */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            
-            {/* Stats: Personal Bests */}
-            <div className="p-6 rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-950 shadow-sm space-y-4">
-              <h3 className="font-geist text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
-                <FiTrendingUp className="h-4 w-4" />
-                Personal Bests
-              </h3>
-              <div className="divide-y divide-slate-100 dark:divide-slate-900">
-                {runningData.personalBests.map((pb, idx) => (
-                  <div key={idx} className="flex justify-between py-2.5 first:pt-0 last:pb-0">
-                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">{pb.distance}</span>
-                    <span className="font-mono text-sm font-bold text-slate-900 dark:text-slate-50">{pb.time}</span>
-                  </div>
-                ))}
+        {/* Right Side: Strava Live Widgets */}
+        <div className="lg:col-span-7 space-y-6">
+          <h3 className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 flex items-center gap-1.5 border-b border-slate-100 dark:border-zinc-900/60 pb-2">
+            <FiHeart className="h-4.5 w-4.5 text-red-600 fill-red-600" />
+            Live Strava Feed
+          </h3>
+
+          <div className="flex flex-col sm:flex-row gap-6 items-start justify-center">
+            {/* Activity Summary Widget */}
+            <div className="flex flex-col items-center gap-2">
+              <span className="font-mono text-[9px] text-slate-400 uppercase tracking-wider">Weekly Training Load</span>
+              <div className="w-[300px] h-[160px] overflow-hidden rounded bg-slate-50 dark:bg-zinc-900 border border-slate-150 dark:border-zinc-900/80 flex items-center justify-center">
+                <iframe 
+                  height="160" 
+                  width="300" 
+                  frameBorder="0" 
+                  allowTransparency={true} 
+                  scrolling="no" 
+                  src={runningData.stravaActivitySummaryUrl}
+                  title="Strava Activity Summary"
+                />
               </div>
             </div>
 
-            {/* Goals: Current Training Targets */}
-            <div className="p-6 rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-950 shadow-sm space-y-4">
-              <h3 className="font-geist text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
-                <FiCalendar className="h-4 w-4" />
-                Current Goals
-              </h3>
-              <div className="space-y-3">
-                {runningData.currentGoals.map((goal, idx) => (
-                  <div key={idx} className="flex justify-between items-center bg-slate-50/50 dark:bg-slate-900/10 p-3 rounded-lg border border-slate-100 dark:border-slate-900">
-                    <div>
-                      <p className="text-sm font-semibold text-slate-950 dark:text-slate-100 leading-snug">{goal.title}</p>
-                      <p className="text-[10px] font-mono text-slate-400 dark:text-slate-500 mt-0.5">Target: {goal.target}</p>
-                    </div>
-                    <span className="font-mono text-[9px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded bg-green-50 border border-green-200 text-green-800 dark:bg-green-950/20 dark:border-green-900 dark:text-green-400">
-                      {goal.status}
-                    </span>
-                  </div>
-                ))}
+            {/* Latest Rides/Runs Widget */}
+            <div className="flex flex-col items-center gap-2">
+              <span className="font-mono text-[9px] text-slate-400 uppercase tracking-wider">Recent Activities</span>
+              <div className="w-[300px] h-[454px] overflow-hidden rounded bg-slate-50 dark:bg-zinc-900 border border-slate-150 dark:border-zinc-900/80 flex items-center justify-center">
+                <iframe 
+                  height="454" 
+                  width="300" 
+                  frameBorder="0" 
+                  allowTransparency={true} 
+                  scrolling="no" 
+                  src={runningData.stravaLatestRidesUrl}
+                  title="Strava Latest Rides"
+                />
               </div>
-            </div>
-
-            {/* Routes: Favorite Trails */}
-            <div className="p-6 rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-950 shadow-sm space-y-4 sm:col-span-2">
-              <h3 className="font-geist text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
-                <FiMapPin className="h-4 w-4" />
-                Favorite Trails &amp; Routes
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {runningData.favoriteRoutes.map((route, idx) => (
-                  <div key={idx} className="p-4 bg-slate-50/50 dark:bg-slate-900/10 rounded-lg border border-slate-100 dark:border-slate-900 space-y-1">
-                    <p className="text-sm font-semibold text-slate-900 dark:text-slate-50">{route.name}</p>
-                    <div className="flex gap-4 text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                      <span>Distance: {route.distance}</span>
-                      <span>Gain: +{route.elevation}</span>
-                    </div>
-                    <p className="text-[10px] font-mono text-slate-400 dark:text-slate-500">Terrain: {route.terrain}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-          </div>
-
-          {/* Strava Live Embeds Section */}
-          <div className="space-y-4">
-            <h3 className="font-geist text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
-              <FiHeart className="h-4 w-4 text-red-500 fill-red-500" />
-              Live Strava Training Dashboard
-            </h3>
-
-            {/* Embed Containers Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-              
-              {/* Activity Summary Widget */}
-              <div className="flex flex-col items-center p-6 rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-950 shadow-sm gap-4">
-                <div className="w-full text-left">
-                  <h4 className="font-geist text-sm font-semibold text-slate-900 dark:text-slate-100">
-                    Weekly Training Load
-                  </h4>
-                  <p className="text-[10px] font-mono text-slate-400 mt-0.5">Strava Activity Summary</p>
-                </div>
-                
-                <div className="w-[300px] h-[160px] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200/50 dark:border-slate-800/50 flex items-center justify-center">
-                  <iframe 
-                    height="160" 
-                    width="300" 
-                    frameBorder="0" 
-                    allowTransparency={true} 
-                    scrolling="no" 
-                    src={runningData.stravaActivitySummaryUrl}
-                    title="Strava Activity Summary"
-                  />
-                </div>
-              </div>
-
-              {/* Latest Rides/Runs Widget */}
-              <div className="flex flex-col items-center p-6 rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-950 shadow-sm gap-4">
-                <div className="w-full text-left">
-                  <h4 className="font-geist text-sm font-semibold text-slate-900 dark:text-slate-100">
-                    Recent Runs &amp; Rides
-                  </h4>
-                  <p className="text-[10px] font-mono text-slate-400 mt-0.5">Strava Feed</p>
-                </div>
-                
-                <div className="w-[300px] h-[454px] overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200/50 dark:border-slate-800/50 flex items-center justify-center">
-                  <iframe 
-                    height="454" 
-                    width="300" 
-                    frameBorder="0" 
-                    allowTransparency={true} 
-                    scrolling="no" 
-                    src={runningData.stravaLatestRidesUrl}
-                    title="Strava Latest Runs"
-                  />
-                </div>
-              </div>
-
             </div>
           </div>
-
         </div>
+
       </div>
-    </section>
+    </div>
   );
 };
