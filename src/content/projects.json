@@ -1,0 +1,52 @@
+[
+  {
+    "id": "neural-spike-sim",
+    "title": "NeuralSpikeSim",
+    "description": "An interactive simulation of Hodgkin-Huxley neural models, allowing real-time adjustment of membrane conductance and current injection to visualize action potentials.",
+    "technologies": ["C++", "WebAssembly", "TypeScript", "Tailwind CSS"],
+    "category": "Research",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop",
+    "github": "https://github.com",
+    "presentation": "https://slideshare.net",
+    "publication": "https://doi.org"
+  },
+  {
+    "id": "gene-expr-vis",
+    "title": "GeneExpr3D",
+    "description": "A web-based 3D visualization dashboard designed to map spatial transcriptomics and coordinate genomic expression levels in embryonic tissues.",
+    "technologies": ["React", "Three.js", "D3.js", "Python"],
+    "category": "Visualization",
+    "image": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=600&auto=format&fit=crop",
+    "github": "https://github.com",
+    "presentation": "https://slideshare.net"
+  },
+  {
+    "id": "zebrafish-immune-dashboard",
+    "title": "Zebrafish Complement Dashboard",
+    "description": "An automated data processing pipeline and dashboard visualizing zebrafish complement system activations and macrophage responses post-injury.",
+    "technologies": ["Python", "Dash", "Pandas", "Scikit-learn"],
+    "category": "Data Science",
+    "image": "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?q=80&w=600&auto=format&fit=crop",
+    "github": "https://github.com",
+    "presentation": "https://slideshare.net"
+  },
+  {
+    "id": "ascent-run-club-portal",
+    "title": "Ascent Run Club Portal",
+    "description": "The digital home of our local community runner collective, displaying schedules, route maps (gpx integrations), and upcoming social race events.",
+    "technologies": ["React", "Vite", "Tailwind CSS", "Mapbox GL"],
+    "category": "Community",
+    "image": "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=600&auto=format&fit=crop",
+    "github": "https://github.com",
+    "presentation": "https://slideshare.net"
+  },
+  {
+    "id": "hrv-sleep-tracker",
+    "title": "HRV & Sleep Correlation Engine",
+    "description": "A personal project parsing raw FitBit and Garmin HRV metrics to analyze statistical dependencies between sleep cycles and aerobic recovery times.",
+    "technologies": ["Python", "Jupyter", "SciPy", "Matplotlib"],
+    "category": "Coding",
+    "image": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop",
+    "github": "https://github.com"
+  }
+]

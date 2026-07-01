@@ -1,0 +1,50 @@
+[
+  {
+    "year": "2023",
+    "title": "Joined BS-MS Program at IISER",
+    "description": "Began undergraduate studies in Biological Sciences. Exposed to genetics, biochemistry, and physical chemistry.",
+    "category": "Education"
+  },
+  {
+    "year": "2023",
+    "title": "Began Self-Taught Coding Journey",
+    "description": "Started learning Python and Git to parse large datasets from university laboratory sessions.",
+    "category": "Coding"
+  },
+  {
+    "year": "2024",
+    "title": "First Lab Fellowship",
+    "description": "Selected for a Summer Research Fellowship modeling freshwater chemistry and ecosystem stress levels.",
+    "category": "Research"
+  },
+  {
+    "year": "2024",
+    "title": "Founded Ascent Run Club",
+    "description": "Began running weekly group sessions with fellow students. Grew from 4 members to over 100 within a year.",
+    "category": "Community"
+  },
+  {
+    "year": "2025",
+    "title": "Completed First Half Marathon",
+    "description": "Finished the Campus Classic Half Marathon in 1h 28m, cementing endurance running as a core routine.",
+    "category": "Running"
+  },
+  {
+    "year": "2025",
+    "title": "Joined IISER Neurobiology Lab",
+    "description": "Undergraduate Research Assistant studying zebrafish brain connectivity and macrophage activity.",
+    "category": "Research"
+  },
+  {
+    "year": "2026",
+    "title": "Building Open Source Tools",
+    "description": "Developing spatial transcriptomics visualization dashboards and cell-tracking simulation scripts.",
+    "category": "Coding"
+  },
+  {
+    "year": "2027+",
+    "title": "Future Horizons",
+    "description": "Aiming to apply for Computational Biology and Neuroscience PhD programs to research network dynamics.",
+    "category": "Future"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "neurobiology",
+    "title": "Neurobiology",
+    "icon": "🧠",
+    "description": "Investigating neural circuits, synaptic plasticity, and sensory integration in model organisms.",
+    "category": "Academic"
+  },
+  {
+    "id": "comp-bio",
+    "title": "Computational Biology",
+    "icon": "🧬",
+    "description": "Developing models to analyze genetic sequences, structure prediction, and biological pathways.",
+    "category": "Academic"
+  },
+  {
+    "id": "scientific-computing",
+    "title": "Scientific Computing",
+    "icon": "🤖",
+    "description": "Using high-performance programming languages to simulate cellular systems and physical dynamics.",
+    "category": "Academic"
+  },
+  {
+    "id": "data-analysis",
+    "title": "Data Analysis",
+    "icon": "📊",
+    "description": "Applying statistical learning and modeling techniques to parse high-throughput experimental data.",
+    "category": "Tools"
+  },
+  {
+    "id": "earth-science",
+    "title": "Earth System Science",
+    "icon": "🌍",
+    "description": "Understanding biogeochemical feedback loops and ecological shifts in response to climate change.",
+    "category": "Academic"
+  },
+  {
+    "id": "endurance-running",
+    "title": "Endurance Running",
+    "icon": "🏃",
+    "description": "Training for marathons, exploring trail networks, and studying the physiology of high-aerobic exercise.",
+    "category": "Personal"
+  }
+]
