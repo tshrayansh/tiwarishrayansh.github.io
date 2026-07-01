@@ -18,53 +18,57 @@ const AppContent: React.FC = () => {
   const [activeTab, setActiveTab] = useState('about');
 
   const tabs = [
-    { id: 'about', label: 'Biography & Focus' },
-    { id: 'research', label: 'Research & Projects' },
-    { id: 'experience', label: 'Experience & Timeline' },
-    { id: 'running', label: 'Running & Community' },
-    { id: 'writing', label: 'Writing & Articles' },
-    { id: 'resume', label: 'Curriculum Vitae' }
+    { id: 'about', label: 'Biography' },
+    { id: 'research', label: 'Projects & Skills' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'running', label: 'Running' },
+    { id: 'writing', label: 'Writing' },
+    { id: 'resume', label: 'CV' }
   ];
 
   const renderActiveContent = () => {
     switch (activeTab) {
       case 'about':
         return (
-          <div className="space-y-16 animate-fade-in text-left">
+          <div className="space-y-12 animate-fade-in">
             <About />
+            <div className="h-px bg-zinc-100 dark:bg-zinc-900/60 my-6" />
             <Interests />
           </div>
         );
       case 'research':
         return (
-          <div className="space-y-16 animate-fade-in text-left">
+          <div className="space-y-12 animate-fade-in">
             <Projects />
+            <div className="h-px bg-zinc-100 dark:bg-zinc-900/60 my-6" />
             <Publications />
+            <div className="h-px bg-zinc-100 dark:bg-zinc-900/60 my-6" />
             <Skills />
           </div>
         );
       case 'experience':
         return (
-          <div className="space-y-16 animate-fade-in text-left">
+          <div className="space-y-12 animate-fade-in">
             <Experience />
+            <div className="h-px bg-zinc-100 dark:bg-zinc-900/60 my-6" />
             <Timeline />
           </div>
         );
       case 'running':
         return (
-          <div className="space-y-16 animate-fade-in text-left">
+          <div className="space-y-12 animate-fade-in">
             <Running />
           </div>
         );
       case 'writing':
         return (
-          <div className="space-y-16 animate-fade-in text-left">
+          <div className="space-y-12 animate-fade-in">
             <Writing />
           </div>
         );
       case 'resume':
         return (
-          <div className="space-y-16 animate-fade-in text-left">
+          <div className="space-y-12 animate-fade-in">
             <Resume />
           </div>
         );
@@ -74,94 +78,85 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-zinc-650 dark:bg-black dark:text-zinc-400 transition-colors duration-200 flex flex-col md:flex-row max-w-6xl mx-auto">
+    <div className="min-h-screen bg-white text-zinc-650 dark:bg-black dark:text-zinc-400 transition-colors duration-200 flex flex-col justify-between max-w-2xl mx-auto px-6 py-12 md:py-16">
       
-      {/* Sticky Left Sidebar */}
-      <aside className="w-full md:w-72 md:h-screen md:sticky md:top-0 border-b md:border-b-0 md:border-r border-zinc-100 dark:border-zinc-900 p-8 flex flex-col justify-between bg-white dark:bg-black z-30">
-        <div className="space-y-10">
-          
-          {/* Profile & Name Block */}
-          <div className="space-y-4 text-left">
-            <div className="w-14 h-14 rounded-full overflow-hidden border border-zinc-200/60 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 flex items-center justify-center">
-              <img 
-                src="./profile.jpeg" 
-                alt={aboutData.name} 
-                className="w-full h-full object-cover" 
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const parent = e.currentTarget.parentElement;
-                  if (parent) {
-                    const fallback = parent.querySelector('.svg-fallback');
-                    if (fallback) fallback.classList.remove('hidden');
-                  }
-                }}
-              />
-              <div className="svg-fallback hidden absolute inset-0 flex items-center justify-center text-zinc-400">
-                <span className="font-mono text-xs">🧬</span>
-              </div>
-            </div>
-            
-            <div className="space-y-1">
-              <h1 className="font-serif text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-                {aboutData.name}
-              </h1>
-              <p className="font-mono text-[9px] text-zinc-450 dark:text-zinc-500 tracking-wider uppercase font-semibold">
-                {aboutData.title}
-              </p>
-            </div>
+      {/* Centered Portfolio Header */}
+      <header className="space-y-6 text-center border-b border-zinc-100 dark:border-zinc-900/60 pb-8">
+        {/* Profile Picture */}
+        <div className="mx-auto w-16 h-16 rounded-full overflow-hidden border border-zinc-200/60 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 flex items-center justify-center">
+          <img 
+            src="./profile.jpeg" 
+            alt={aboutData.name} 
+            className="w-full h-full object-cover" 
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              const parent = e.currentTarget.parentElement;
+              if (parent) {
+                const fallback = parent.querySelector('.svg-fallback');
+                if (fallback) fallback.classList.remove('hidden');
+              }
+            }}
+          />
+          <div className="svg-fallback hidden absolute inset-0 flex items-center justify-center text-zinc-400">
+            <span className="font-mono text-xs">🧬</span>
           </div>
-
-          {/* Navigation Tabs - Understated Indicator */}
-          <nav className="flex flex-col gap-3.5 text-left border-l border-zinc-100 dark:border-zinc-900/60 pl-px">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  setActiveTab(tab.id);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className={`font-geist text-xs font-semibold pl-3 -ml-[1px] transition-all cursor-pointer text-left w-full border-l-2 py-0.5 ${
-                  activeTab === tab.id
-                    ? 'border-zinc-900 text-zinc-900 font-bold dark:border-zinc-50 dark:text-zinc-50'
-                    : 'border-transparent text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </nav>
-
         </div>
 
-        {/* Sidebar Footer Controls & Social Icons */}
-        <div className="space-y-4 pt-6 border-t border-zinc-100 dark:border-zinc-900/60">
-          {/* Quick social links */}
-          <div className="flex gap-4 text-zinc-400 dark:text-zinc-500">
-            <a href={aboutData.email} className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors" title="Email"><FiMail className="h-4.5 w-4.5" /></a>
-            <a href={aboutData.githubLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors" title="GitHub"><FiGithub className="h-4.5 w-4.5" /></a>
-            <a href={aboutData.linkedinLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors" title="LinkedIn"><FiLinkedin className="h-4.5 w-4.5" /></a>
-            <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors" title="Medium"><FiBookOpen className="h-4.5 w-4.5" /></a>
-          </div>
+        {/* Name & Title */}
+        <div className="space-y-1.5">
+          <h1 className="font-serif text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+            {aboutData.name}
+          </h1>
+          <p className="font-mono text-[9px] text-zinc-450 dark:text-zinc-500 tracking-wider uppercase font-semibold">
+            {aboutData.title}
+          </p>
+        </div>
 
-          <div className="flex items-center justify-between text-[10px] font-mono text-zinc-400 dark:text-zinc-650">
-            <span>&copy; Shrayansh</span>
-            
+        {/* Minimalist Contact Link Row */}
+        <div className="flex gap-5 justify-center text-zinc-400 dark:text-zinc-500 pt-1">
+          <a href={aboutData.email} className="hover:text-zinc-900 dark:hover:text-zinc-250 transition-colors" title="Email"><FiMail className="h-4 w-4" /></a>
+          <a href={aboutData.githubLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-250 transition-colors" title="GitHub"><FiGithub className="h-4 w-4" /></a>
+          <a href={aboutData.linkedinLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-250 transition-colors" title="LinkedIn"><FiLinkedin className="h-4 w-4" /></a>
+          <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-250 transition-colors" title="Medium"><FiBookOpen className="h-4 w-4" /></a>
+        </div>
+      </header>
+
+      {/* Sticky Horizontal Navigation Bar */}
+      <div className="sticky top-0 bg-white/95 dark:bg-black/95 backdrop-blur-xs z-40 border-b border-zinc-100 dark:border-zinc-900/60 py-2.5 my-6 overflow-x-auto scrollbar-none flex items-center justify-between">
+        <nav className="flex gap-5 text-left md:justify-center w-full">
+          {tabs.map((tab) => (
             <button
-              onClick={toggleTheme}
-              className="rounded-full p-1.5 text-zinc-400 hover:bg-zinc-50 dark:text-zinc-500 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors cursor-pointer"
-              aria-label="Toggle Theme"
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`font-geist text-[11px] font-bold uppercase tracking-wider pb-1.5 border-b-2 cursor-pointer transition-colors ${
+                activeTab === tab.id
+                  ? 'border-zinc-900 text-zinc-900 dark:border-zinc-50 dark:text-zinc-50'
+                  : 'border-transparent text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-200'
+              }`}
             >
-              {theme === 'light' ? <FiMoon className="h-3.5 w-3.5" /> : <FiSun className="h-3.5 w-3.5" />}
+              {tab.label}
             </button>
-          </div>
-        </div>
+          ))}
+        </nav>
+      </div>
 
-      </aside>
-
-      {/* Main Dynamic Panel on the Right */}
-      <section className="flex-1 p-8 md:p-12 lg:p-16 max-w-3xl overflow-y-auto">
+      {/* Main Dynamic Panel */}
+      <main className="flex-grow py-4 min-h-[300px]">
         {renderActiveContent()}
-      </section>
+      </main>
+
+      {/* Footer controls */}
+      <footer className="border-t border-zinc-100 dark:border-zinc-900/60 pt-8 mt-16 flex items-center justify-between text-[9px] font-mono text-zinc-400 dark:text-zinc-650">
+        <span>&copy; {new Date().getFullYear()} Shrayansh. Built with React &amp; Vite.</span>
+        
+        <button
+          onClick={toggleTheme}
+          className="rounded-full p-1.5 text-zinc-400 hover:bg-zinc-50 dark:text-zinc-500 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors cursor-pointer"
+          aria-label="Toggle Theme"
+        >
+          {theme === 'light' ? <FiMoon className="h-3.5 w-3.5" /> : <FiSun className="h-3.5 w-3.5" />}
+        </button>
+      </footer>
 
     </div>
   );
