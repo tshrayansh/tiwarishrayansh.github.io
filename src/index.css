@@ -8,22 +8,16 @@
   --font-serif: 'Lora', Georgia, serif;
   --font-mono: 'Geist Mono', monospace;
 
-  /* Biophilic Organic Academic Palette */
-  --color-bg-light: #fcfaf6; /* Warm organic linen */
-  --color-card-light: #ffffff; /* Crisp white for cards */
-  --color-border-light: #e6e3dc; /* Soft clay-colored border */
-  --color-text-light-primary: #1a241b; /* Deep forest charcoal */
-  --color-text-light-secondary: #5a655b; /* Muted sage-charcoal */
+  /* Premium Alabaster Monograph Colors */
+  --color-bg-light: #fbfaf7; /* Warm alabaster linen paper */
+  --color-text-light-primary: #1c1b1a; /* Warm black ink */
+  --color-text-light-secondary: #5e5c56; /* Soft charcoal */
+  --color-border-light: #e5e3df; /* Warm grey rule */
 
-  --color-bg-dark: #0a0f0c; /* Deep forest obsidian */
-  --color-card-dark: #111613; /* Muted dark emerald */
-  --color-border-dark: #1b241e; /* Dark moss border */
-  --color-text-dark-primary: #cfd8d0; /* Silver-sage */
-  --color-text-dark-secondary: #8c9b8e; /* Sage grey */
-
-  /* Earthy Sage Green */
-  --color-accent-green: #2d5a27;
-  --color-accent-green-bg: #f4f9f4;
+  --color-bg-dark: #09090b; /* Pure slate black */
+  --color-text-dark-primary: #f4f4f5; /* Clean white */
+  --color-text-dark-secondary: #a1a1aa; /* Slate grey */
+  --color-border-dark: #1e1e24; /* Muted dark rule */
 }
 
 /* Custom Scrollbars */
@@ -35,11 +29,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #e6e3dc;
+  background: #e5e3df;
   border-radius: 4px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #1b241e;
+  background: #1e1e24;
 }
 
 /* Base Body Styles */
@@ -47,7 +41,7 @@ body {
   font-family: var(--font-sans);
   background-color: var(--color-bg-light);
   color: var(--color-text-light-secondary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   overflow-x: hidden;
   line-height: 1.7;
 }
@@ -57,34 +51,37 @@ body {
   color: var(--color-text-dark-secondary);
 }
 
-/* Selection */
-::selection {
-  background-color: #2d5a27;
-  color: #ffffff;
+/* Typography Defaults */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--color-text-light-primary);
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
-.dark ::selection {
-  background-color: #8c9b8e;
-  color: #0a0f0c;
+.dark h1, .dark h2, .dark h3, .dark h4 {
+  color: var(--color-text-dark-primary);
 }
 
-/* Custom Museum Divider line */
-.museum-divider {
+a {
+  color: var(--color-text-light-primary);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+.dark a {
+  color: var(--color-text-dark-primary);
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* Document divider styling */
+hr {
+  border: 0;
   height: 1px;
   background-color: var(--color-border-light);
-  width: 100%;
+  margin: 3rem 0;
 }
-.dark .museum-divider {
+.dark hr {
   background-color: var(--color-border-dark);
-}
-
-/* Hover glow states */
-.glow-on-hover {
-  transition: all 0.3s ease;
-}
-.glow-on-hover:hover {
-  border-color: #2d5a27;
-}
-.dark .glow-on-hover:hover {
-  border-color: #8c9b8e;
 }

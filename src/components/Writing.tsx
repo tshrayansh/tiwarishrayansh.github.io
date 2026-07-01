@@ -6,64 +6,53 @@ export const Writing: React.FC = () => {
   return (
     <div className="space-y-8 text-left">
       {/* Museum Header */}
-      <div className="space-y-1.5 border-b border-zinc-200/60 dark:border-zinc-900/60 pb-4">
-        <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-800 dark:text-emerald-500 font-bold">
-          Section V // essays
+      <div className="space-y-1 border-b border-zinc-200/60 dark:border-zinc-900/60 pb-4">
+        <span className="font-mono text-[9px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          05 // Essays &amp; Notes
         </span>
-        <h2 className="font-serif text-3xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
-          V. Selected Writing
+        <h2 className="font-serif text-2xl font-normal text-zinc-900 dark:text-zinc-50 tracking-tight">
+          5. Essays &amp; Notes
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+      {/* Text List of Essays */}
+      <div className="space-y-8">
         {writingData.map((article) => (
           <div 
             key={article.id}
-            className="flex flex-col overflow-hidden rounded-lg border border-slate-200/50 bg-white dark:border-zinc-900/60 dark:bg-zinc-950/20 group transition-all duration-200"
+            className="space-y-2"
           >
-            {/* Cover image */}
-            {article.coverImage && (
-              <div className="relative h-40 w-full overflow-hidden bg-slate-50 dark:bg-zinc-900 border-b border-slate-100 dark:border-zinc-900/40">
-                <img
-                  src={article.coverImage}
-                  alt={article.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-95"
-                />
-                <div className="absolute bottom-2 left-2">
-                  <span className="font-mono text-[8px] uppercase tracking-wider font-semibold bg-white/95 text-slate-800 dark:bg-zinc-950/95 dark:text-slate-200 border border-slate-200/40 dark:border-zinc-800/40 px-1.5 py-0.5 rounded shadow-xs flex items-center gap-1">
-                    <FiClock className="h-3 w-3" />
-                    {article.readingTime}
-                  </span>
-                </div>
-              </div>
-            )}
+            {/* Date & Reading Time */}
+            <div className="flex items-center gap-3 font-mono text-[10px] text-zinc-400 dark:text-zinc-500">
+              <span>{article.date}</span>
+              <span>&bull;</span>
+              <span className="flex items-center gap-1">
+                <FiClock className="h-3 w-3" />
+                {article.readingTime}
+              </span>
+            </div>
 
-            {/* Content Body */}
-            <div className="p-5 flex-grow flex flex-col justify-between space-y-4">
-              <div className="space-y-1.5">
-                <span className="font-mono text-[9px] text-zinc-400 dark:text-zinc-500 block">
-                  {article.date}
-                </span>
-                <h3 className="font-serif text-xs font-bold text-slate-900 dark:text-slate-50 leading-snug group-hover:text-slate-750 dark:group-hover:text-slate-200 transition-colors">
-                  {article.title}
-                </h3>
-                <p className="text-[11px] text-slate-500 dark:text-zinc-400 font-light leading-relaxed h-[50px] overflow-hidden font-sans">
-                  {article.summary}
-                </p>
-              </div>
+            {/* Title */}
+            <h3 className="font-serif text-base font-medium text-zinc-900 dark:text-zinc-50 leading-snug">
+              {article.title}
+            </h3>
 
-              <div className="pt-3 border-t border-slate-100 dark:border-zinc-900/40">
-                <a
-                  href={article.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 font-mono text-[9px] uppercase font-bold text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors cursor-pointer"
-                >
-                  Read Essay
-                  <FiArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-                </a>
-              </div>
+            {/* Summary */}
+            <p className="text-xs text-zinc-550 dark:text-zinc-400 font-light leading-relaxed font-sans max-w-xl">
+              {article.summary}
+            </p>
+
+            {/* Link */}
+            <div className="pt-1 font-mono text-[10px]">
+              <a
+                href={article.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-zinc-900 dark:hover:text-zinc-250 transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>[read essay]</span>
+                <FiArrowRight className="h-3.5 w-3.5" />
+              </a>
             </div>
           </div>
         ))}

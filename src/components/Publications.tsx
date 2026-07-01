@@ -6,10 +6,10 @@ export const Publications: React.FC = () => {
   return (
     <div className="space-y-6 text-left pt-6">
       <div className="space-y-1">
-        <h3 className="font-serif text-lg font-bold text-slate-900 dark:text-slate-50 tracking-tight">
+        <h3 className="font-serif text-lg font-normal text-zinc-900 dark:text-zinc-50 tracking-tight">
           Selected Posters &amp; Papers
         </h3>
-        <p className="font-mono text-[8px] uppercase tracking-wider text-zinc-400">
+        <p className="font-mono text-[8px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
           Scientific citations
         </p>
       </div>
@@ -18,38 +18,43 @@ export const Publications: React.FC = () => {
         {publicationsData.map((pub, index) => (
           <div 
             key={pub.id}
-            className="flex gap-4 items-start border-l border-zinc-150 dark:border-zinc-900 pl-5 relative"
+            className="flex gap-4 items-start relative pl-6"
           >
-            <span className="absolute -left-3.5 top-0 font-mono text-[10px] text-zinc-400 dark:text-zinc-650 bg-white dark:bg-black px-1.5">
+            {/* Index label */}
+            <span className="absolute left-0 top-0.5 font-mono text-[10px] text-zinc-400 dark:text-zinc-650">
               [{index + 1}]
             </span>
 
-            <div className="space-y-2 flex-grow">
-              <h4 className="font-serif text-sm font-bold text-zinc-900 dark:text-zinc-50 leading-snug">
+            <div className="space-y-1.5 flex-grow">
+              {/* Title */}
+              <h4 className="font-serif text-sm font-medium text-zinc-900 dark:text-zinc-50 leading-snug">
                 {pub.title}
               </h4>
               
-              <div className="text-xs space-y-1 font-light">
+              {/* Authors & Venue */}
+              <div className="text-xs space-y-0.5 font-light">
                 <p className="text-zinc-800 dark:text-zinc-300">
                   <span className="font-serif italic font-medium">{pub.authors}</span>
                 </p>
-                <p className="font-mono text-[9px] text-zinc-400 dark:text-zinc-550">
+                <p className="font-mono text-[9px] text-zinc-400 dark:text-zinc-500">
                   {pub.venue} &bull; {pub.date}
                 </p>
               </div>
 
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-light text-justify max-w-2xl">
+              {/* Abstract */}
+              <p className="text-xs text-zinc-550 dark:text-zinc-450 leading-relaxed font-light text-justify max-w-xl">
                 {pub.abstract}
               </p>
 
-              <div className="flex gap-4 pt-1 font-mono text-[9px] font-bold uppercase tracking-wider">
+              {/* Links */}
+              <div className="flex gap-4 pt-1 font-mono text-[10px] text-zinc-400 dark:text-zinc-500">
                 {pub.pdfLink && (
                   <a
                     href={pub.pdfLink}
-                    className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+                    className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1"
                   >
                     <FiFileText className="h-3 w-3" />
-                    PDF Copy
+                    <span>[pdf]</span>
                   </a>
                 )}
                 {pub.doi && (
@@ -57,10 +62,10 @@ export const Publications: React.FC = () => {
                     href={`https://doi.org/${pub.doi}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+                    className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1"
                   >
                     <FiLink className="h-3 w-3" />
-                    DOI: {pub.doi}
+                    <span>[doi: {pub.doi}]</span>
                   </a>
                 )}
               </div>

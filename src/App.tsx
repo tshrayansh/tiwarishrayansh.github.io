@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ThemeProvider, useTheme } from './components/ThemeContext';
 import { About } from './components/About';
 import { Interests } from './components/Interests';
@@ -13,51 +13,22 @@ import { Resume } from './components/Resume';
 import { FiSun, FiMoon, FiMail, FiGithub, FiLinkedin, FiBookOpen } from 'react-icons/fi';
 import aboutData from './content/about.json';
 
-const TOC_ITEMS = [
-  { id: 'about', roman: 'I', label: 'Biography' },
-  { id: 'projects', roman: 'II', label: 'Research & Projects' },
-  { id: 'experience', roman: 'III', label: 'Experience' },
-  { id: 'running', roman: 'IV', label: 'Running & Strava' },
-  { id: 'writing', roman: 'V', label: 'Writing' },
-  { id: 'resume', roman: 'VI', label: 'Curriculum Vitae' }
+const SECTIONS = [
+  { id: 'biography', num: '1', title: 'Biography' },
+  { id: 'research', num: '2', title: 'Selected Research' },
+  { id: 'experience', num: '3', title: 'Academic Experience' },
+  { id: 'running', num: '4', title: 'Field Logs & Running' },
+  { id: 'writing', num: '5', title: 'Essays & Notes' },
+  { id: 'resume', num: '6', title: 'Curriculum Vitae' }
 ];
 
 const AppContent: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
-  const [activeSection, setActiveSection] = useState('about');
-
-  // Track active section on scroll for TOC highlighting
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 250;
-
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 55) {
-        setActiveSection('resume');
-        return;
-      }
-
-      for (const item of TOC_ITEMS) {
-        const element = document.getElementById(item.id);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(item.id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80;
+      const offset = 40;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -71,121 +42,106 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-transparent text-zinc-650 dark:text-zinc-400 transition-colors duration-300 max-w-4xl mx-auto px-6 py-20 md:py-32">
+    <div className="min-h-screen bg-transparent text-zinc-600 dark:text-zinc-400 transition-colors duration-300 max-w-2xl mx-auto px-6 py-16 md:py-24 space-y-20 selection:bg-zinc-200 dark:selection:bg-zinc-800">
       
-      {/* Desktop Floating Table of Contents (TOC) - Expanding on hover */}
-      <aside className="fixed right-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-5 items-end z-50">
-        {TOC_ITEMS.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => scrollToSection(item.id)}
-            className="group flex items-center gap-3.5 cursor-pointer text-right"
-          >
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono text-[9px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 font-bold">
-              {item.label}
-            </span>
-            <span className={`w-8 h-8 rounded-full border flex items-center justify-center font-mono text-[10px] font-bold transition-all duration-300 ${
-              activeSection === item.id
-                ? 'bg-zinc-900 text-white border-zinc-900 dark:bg-zinc-50 dark:text-zinc-950 dark:border-zinc-50 shadow-sm scale-110'
-                : 'bg-white text-zinc-400 border-zinc-200 hover:border-zinc-900 hover:text-zinc-900 dark:bg-zinc-950 dark:border-zinc-900 dark:text-zinc-600 dark:hover:border-zinc-50 dark:hover:text-zinc-50'
-            }`}>
-              {item.roman}
-            </span>
-          </button>
-        ))}
-      </aside>
-
-      {/* Mobile Floating Pill Navigation - Docks at bottom */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-zinc-200/50 dark:border-zinc-800/80 shadow-lg flex gap-4 md:hidden text-[10px] font-mono font-bold">
-        {TOC_ITEMS.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => scrollToSection(item.id)}
-            className={`transition-colors cursor-pointer ${
-              activeSection === item.id 
-                ? 'text-zinc-900 dark:text-zinc-50 underline decoration-2' 
-                : 'text-zinc-400 dark:text-zinc-650'
-            }`}
-          >
-            {item.roman}
-          </button>
-        ))}
-      </div>
-
-      {/* Centered Portfolio Header */}
-      <header className="space-y-6 text-center pb-12 border-b border-zinc-200/60 dark:border-zinc-900/60">
-        {/* Profile Picture */}
-        <div className="mx-auto w-20 h-20 rounded-full overflow-hidden border border-zinc-200/60 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 flex items-center justify-center shadow-xs">
-          <img 
-            src="./profile.jpeg" 
-            alt={aboutData.name} 
-            className="w-full h-full object-cover" 
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-              const parent = e.currentTarget.parentElement;
-              if (parent) {
-                const fallback = parent.querySelector('.svg-fallback');
-                if (fallback) fallback.classList.remove('hidden');
-              }
-            }}
-          />
-          <div className="svg-fallback hidden absolute inset-0 flex items-center justify-center text-zinc-400">
-            <span className="font-mono text-xs">🧬</span>
-          </div>
-        </div>
-
-        {/* Name & Title */}
+      {/* Editorial Header */}
+      <header className="space-y-4 text-left">
         <div className="space-y-2">
-          <h1 className="font-serif text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+          <h1 className="font-serif text-3xl md:text-4xl font-normal text-zinc-900 dark:text-zinc-50 tracking-tight">
             {aboutData.name}
           </h1>
-          <p className="font-mono text-[10px] text-zinc-450 dark:text-zinc-500 tracking-widest uppercase font-semibold">
+          <p className="font-mono text-[10px] tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
             {aboutData.title}
           </p>
         </div>
 
-        {/* Minimalist Contact Link Row */}
-        <div className="flex gap-6 justify-center text-zinc-400 dark:text-zinc-500 pt-1">
-          <a href={aboutData.email} className="hover:text-zinc-900 dark:hover:text-zinc-250 transition-colors" title="Email"><FiMail className="h-4.5 w-4.5" /></a>
-          <a href={aboutData.githubLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-250 transition-colors" title="GitHub"><FiGithub className="h-4.5 w-4.5" /></a>
-          <a href={aboutData.linkedinLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-250 transition-colors" title="LinkedIn"><FiLinkedin className="h-4.5 w-4.5" /></a>
-          <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-250 transition-colors" title="Medium"><FiBookOpen className="h-4.5 w-4.5" /></a>
+        {/* Minimalist Contact Links */}
+        <div className="flex gap-5 text-zinc-400 dark:text-zinc-500 text-xs font-mono">
+          <a href={aboutData.email} className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1.5" title="Email">
+            <FiMail className="h-3.5 w-3.5" />
+            <span>Email</span>
+          </a>
+          <a href={aboutData.githubLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1.5" title="GitHub">
+            <FiGithub className="h-3.5 w-3.5" />
+            <span>GitHub</span>
+          </a>
+          <a href={aboutData.linkedinLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1.5" title="LinkedIn">
+            <FiLinkedin className="h-3.5 w-3.5" />
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1.5" title="Medium">
+            <FiBookOpen className="h-3.5 w-3.5" />
+            <span>Medium</span>
+          </a>
         </div>
       </header>
 
-      {/* Main Curated Single-Page Grid Flow */}
-      <div className="space-y-28 py-16">
+      {/* Book-Style Table of Contents (TOC) */}
+      <section className="space-y-4 border-t border-b border-zinc-200/50 dark:border-zinc-900/50 py-8">
+        <h2 className="font-mono text-[10px] tracking-widest text-zinc-400 dark:text-zinc-500 uppercase font-bold">
+          Contents
+        </h2>
+        <nav className="space-y-2 text-sm font-serif">
+          {SECTIONS.map((sec) => (
+            <button
+              key={sec.id}
+              onClick={() => scrollToSection(sec.id)}
+              className="flex justify-between items-baseline w-full text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-50 cursor-pointer group text-left"
+            >
+              <span className="flex gap-2">
+                <span className="font-mono text-xs text-zinc-400">{sec.num}.</span>
+                <span className="group-hover:underline">{sec.title}</span>
+              </span>
+              <span className="border-b border-dotted border-zinc-250 dark:border-zinc-800 flex-grow mx-4 h-2 opacity-50" />
+              <span className="font-mono text-xs text-zinc-400">0{sec.num}</span>
+            </button>
+          ))}
+        </nav>
+      </section>
+
+      {/* Main Continuous Document Sections */}
+      <div className="space-y-20">
         
-        {/* Section I: Biography & Focus */}
-        <section id="about" className="space-y-12">
+        {/* Section 1: Biography */}
+        <section id="biography" className="space-y-12">
           <About />
           <Interests />
         </section>
 
-        {/* Section II: Selected Research & Builds */}
-        <section id="projects" className="space-y-12">
+        <hr />
+
+        {/* Section 2: Selected Research & Projects */}
+        <section id="research" className="space-y-12">
           <Projects />
           <Publications />
           <Skills />
         </section>
 
-        {/* Section III: Academic Experience & Timeline */}
+        <hr />
+
+        {/* Section 3: Academic Experience & Chronology */}
         <section id="experience" className="space-y-12">
           <Experience />
           <Timeline />
         </section>
 
-        {/* Section IV: Running & Ascent Run Club */}
+        <hr />
+
+        {/* Section 4: Running */}
         <section id="running">
           <Running />
         </section>
 
-        {/* Section V: Medium Writing */}
+        <hr />
+
+        {/* Section 5: Essays & Notes */}
         <section id="writing">
           <Writing />
         </section>
 
-        {/* Section VI: Printable CV Document */}
+        <hr />
+
+        {/* Section 6: CV */}
         <section id="resume">
           <Resume />
         </section>
@@ -193,15 +149,15 @@ const AppContent: React.FC = () => {
       </div>
 
       {/* Footer controls & theme switch */}
-      <footer className="border-t border-zinc-200/60 dark:border-zinc-900/60 pt-10 mt-16 flex items-center justify-between text-[10px] font-mono text-zinc-400 dark:text-zinc-650">
-        <span>&copy; {new Date().getFullYear()} Shrayansh. Curated Portfolio &bull; React &amp; Vite.</span>
+      <footer className="border-t border-zinc-200/50 dark:border-zinc-900/50 pt-8 mt-16 flex items-center justify-between text-[10px] font-mono text-zinc-400 dark:text-zinc-600">
+        <span>&copy; {new Date().getFullYear()} Shrayansh. Printed in digital format.</span>
         
         <button
           onClick={toggleTheme}
-          className="rounded-full p-2 text-zinc-400 hover:bg-zinc-50 dark:text-zinc-500 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors cursor-pointer"
+          className="rounded-full p-2 text-zinc-400 hover:bg-zinc-100 dark:text-zinc-500 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors cursor-pointer"
           aria-label="Toggle Theme"
         >
-          {theme === 'light' ? <FiMoon className="h-4 w-4" /> : <FiSun className="h-4 w-4" />}
+          {theme === 'light' ? <FiSun className="h-3.5 w-3.5" /> : <FiMoon className="h-3.5 w-3.5" />}
         </button>
       </footer>
 
