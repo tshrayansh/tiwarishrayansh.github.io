@@ -4,13 +4,14 @@ import { FiClock, FiArrowRight } from 'react-icons/fi';
 
 export const Writing: React.FC = () => {
   return (
-    <div className="py-12 text-left space-y-8">
-      <div className="space-y-1.5">
-        <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-800 dark:text-emerald-500 font-semibold">
-          Publication Logs
+    <div className="space-y-8 text-left">
+      {/* Museum Header */}
+      <div className="space-y-1.5 border-b border-zinc-200/60 dark:border-zinc-900/60 pb-4">
+        <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-800 dark:text-emerald-500 font-bold">
+          Section V // essays
         </span>
-        <h2 className="font-geist text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
-          Writing &amp; Articles
+        <h2 className="font-serif text-3xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
+          V. Selected Writing
         </h2>
       </div>
 
@@ -41,13 +42,13 @@ export const Writing: React.FC = () => {
             {/* Content Body */}
             <div className="p-5 flex-grow flex flex-col justify-between space-y-4">
               <div className="space-y-1.5">
-                <span className="font-mono text-[9px] text-slate-400 dark:text-zinc-500 block">
+                <span className="font-mono text-[9px] text-zinc-400 dark:text-zinc-500 block">
                   {article.date}
                 </span>
-                <h3 className="font-geist text-xs font-bold text-slate-900 dark:text-slate-50 leading-snug group-hover:text-slate-750 dark:group-hover:text-slate-200 transition-colors">
+                <h3 className="font-serif text-xs font-bold text-slate-900 dark:text-slate-50 leading-snug group-hover:text-slate-750 dark:group-hover:text-slate-200 transition-colors">
                   {article.title}
                 </h3>
-                <p className="text-[11px] text-slate-500 dark:text-zinc-400 font-light leading-relaxed h-[50px] overflow-hidden">
+                <p className="text-[11px] text-slate-500 dark:text-zinc-400 font-light leading-relaxed h-[50px] overflow-hidden font-sans">
                   {article.summary}
                 </p>
               </div>

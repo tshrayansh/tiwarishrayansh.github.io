@@ -4,26 +4,25 @@ import { FiTrendingUp, FiMapPin, FiCalendar, FiHeart, FiInstagram } from 'react-
 
 export const Running: React.FC = () => {
   return (
-    <div className="py-12 space-y-12 text-left">
-      {/* Header and Philosophy */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-slate-100 dark:border-zinc-900/60 pb-6">
-        <div className="lg:col-span-4 space-y-1.5">
-          <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-800 dark:text-emerald-500 font-semibold">
-            Athletic pursuit
+    <div className="space-y-12 text-left">
+      {/* Museum Header */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-200/60 dark:border-zinc-900/60 pb-4">
+        <div className="space-y-1.5">
+          <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-800 dark:text-emerald-500 font-bold">
+            Section IV // athletic summary
           </span>
-          <h2 className="font-geist text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
-            Endurance &amp; Community
+          <h2 className="font-serif text-3xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
+            IV. Endurance &amp; Community
           </h2>
-        </div>
-        <div className="lg:col-span-8">
-          <p className="text-sm md:text-base text-slate-500 dark:text-zinc-400 font-light leading-relaxed">
-            {runningData.runningPhilosophy}
-          </p>
         </div>
       </div>
 
+      <p className="text-sm md:text-base text-slate-500 dark:text-zinc-400 font-light leading-relaxed">
+        {runningData.runningPhilosophy}
+      </p>
+
       {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pt-2">
         
         {/* Left Side: Stats and Details */}
         <div className="lg:col-span-5 space-y-8">
@@ -88,7 +87,7 @@ export const Running: React.FC = () => {
             <h3 className="font-geist text-xs font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider font-mono">
               {runningData.ascentRunClub.name}
             </h3>
-            <p className="text-[11px] text-slate-500 dark:text-zinc-400 font-light leading-relaxed">
+            <p className="text-[11px] text-slate-550 dark:text-zinc-400 font-light leading-relaxed font-sans">
               {runningData.ascentRunClub.whyStarted}
             </p>
             <div className="text-[10px] font-mono text-slate-550 dark:text-zinc-500">
@@ -121,14 +120,14 @@ export const Running: React.FC = () => {
         {/* Right Side: Strava Live Widgets */}
         <div className="lg:col-span-7 space-y-6">
           <h3 className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 flex items-center gap-1.5 border-b border-slate-100 dark:border-zinc-900/60 pb-2">
-            <FiHeart className="h-4.5 w-4.5 text-red-600 fill-red-600" />
+            <FiHeart className="h-4.5 w-4.5 text-red-500 fill-red-500" />
             Live Strava Feed
           </h3>
 
           <div className="flex flex-col sm:flex-row gap-6 items-start justify-center">
             {/* Activity Summary Widget */}
             <div className="flex flex-col items-center gap-2">
-              <span className="font-mono text-[9px] text-slate-400 uppercase tracking-wider">Weekly Training Load</span>
+              <span className="font-mono text-[9px] text-slate-400 uppercase tracking-wider">Weekly Summary</span>
               <div className="w-[300px] h-[160px] overflow-hidden rounded bg-slate-50 dark:bg-zinc-900 border border-slate-150 dark:border-zinc-900/80 flex items-center justify-center">
                 <iframe 
                   height="160" 
@@ -144,7 +143,7 @@ export const Running: React.FC = () => {
 
             {/* Latest Rides/Runs Widget */}
             <div className="flex flex-col items-center gap-2">
-              <span className="font-mono text-[9px] text-slate-400 uppercase tracking-wider">Recent Activities</span>
+              <span className="font-mono text-[9px] text-slate-400 uppercase tracking-wider">Recent Runs</span>
               <div className="w-[300px] h-[454px] overflow-hidden rounded bg-slate-50 dark:bg-zinc-900 border border-slate-150 dark:border-zinc-900/80 flex items-center justify-center">
                 <iframe 
                   height="454" 

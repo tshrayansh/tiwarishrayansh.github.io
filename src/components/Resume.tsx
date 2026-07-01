@@ -5,13 +5,14 @@ import skillsData from '../content/skills.json';
 
 export const Resume: React.FC = () => {
   return (
-    <div className="space-y-6 text-left max-w-xl mx-auto">
-      <div className="space-y-1.5">
-        <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-800 dark:text-emerald-500 font-semibold">
-          Curriculum Vitae
+    <div className="space-y-8 text-left max-w-xl mx-auto">
+      {/* Museum Header */}
+      <div className="space-y-1.5 border-b border-zinc-200/60 dark:border-zinc-900/60 pb-4">
+        <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-800 dark:text-emerald-500 font-bold">
+          Section VI // curriculum vitae
         </span>
-        <h2 className="font-serif text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
-          Curriculum Vitae
+        <h2 className="font-serif text-3xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
+          VI. Curriculum Vitae
         </h2>
       </div>
 
@@ -53,14 +54,14 @@ export const Resume: React.FC = () => {
 
           <div className="space-y-2 text-xs">
             <span className="font-geist text-[9px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Research Interests</span>
-            <p className="text-slate-550 dark:text-slate-450 leading-relaxed font-light">
+            <p className="text-slate-550 dark:text-slate-450 leading-relaxed font-light font-serif">
               Computational Biology, Neurobiology, Spatial Transcriptomics, and Fluidic Biogeochemical systems.
             </p>
           </div>
 
           <div className="space-y-2 text-xs">
             <span className="font-geist text-[9px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Core Toolbox</span>
-            <p className="text-slate-550 dark:text-slate-450 leading-relaxed font-light">
+            <p className="text-slate-550 dark:text-slate-450 leading-relaxed font-light font-mono">
               {skillsData[0].skills.join(', ')} &amp; {skillsData[1].skills.join(', ')}
             </p>
           </div>

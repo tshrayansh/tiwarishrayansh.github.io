@@ -17,14 +17,14 @@ const getCategoryColor = (category: string) => {
 
 export const Timeline: React.FC = () => {
   return (
-    <div className="space-y-6 text-left">
-      <div className="space-y-1.5">
-        <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-800 dark:text-emerald-500 font-semibold">
-          Checkpoints
-        </span>
-        <h2 className="font-geist text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
-          Timeline
-        </h2>
+    <div className="space-y-6 text-left pt-6">
+      <div className="space-y-1">
+        <h3 className="font-serif text-lg font-bold text-slate-900 dark:text-slate-50 tracking-tight">
+          Chronology &amp; Milestones
+        </h3>
+        <p className="font-mono text-[8px] uppercase tracking-wider text-zinc-400">
+          Checkpoints of the scientific path
+        </p>
       </div>
 
       <div className="relative pl-6 border-l border-slate-200 dark:border-zinc-800 space-y-6 py-2 ml-4">
@@ -46,17 +46,17 @@ export const Timeline: React.FC = () => {
                 <span className="font-bold text-slate-900 dark:text-slate-200">
                   {item.year}
                 </span>
-                <span className="text-slate-350 dark:text-zinc-600">//</span>
+                <span className="text-slate-350 dark:text-zinc-650">//</span>
                 <span className="text-slate-400 dark:text-zinc-500 uppercase tracking-wider font-semibold">
                   {item.category}
                 </span>
               </div>
               
-              <h3 className="font-geist text-xs font-bold text-slate-900 dark:text-slate-50">
+              <h4 className="font-geist text-xs font-bold text-slate-900 dark:text-slate-50">
                 {item.title}
-              </h3>
+              </h4>
               
-              <p className="text-[11px] text-slate-550 dark:text-zinc-405 font-light leading-relaxed max-w-md">
+              <p className="text-[11px] text-slate-550 dark:text-zinc-400 font-light leading-relaxed max-w-md">
                 {item.description}
               </p>
             </div>

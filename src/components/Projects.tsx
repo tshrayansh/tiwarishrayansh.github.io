@@ -14,14 +14,14 @@ export const Projects: React.FC = () => {
 
   return (
     <div className="space-y-8 text-left">
-      {/* Header Block */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-100 dark:border-zinc-900/60 pb-3">
-        <div className="space-y-1">
-          <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-800 dark:text-emerald-500 font-semibold">
-            Work Index
+      {/* Museum Header */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-200/60 dark:border-zinc-900/60 pb-4">
+        <div className="space-y-1.5">
+          <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-800 dark:text-emerald-500 font-bold">
+            Section II // research index
           </span>
-          <h2 className="font-serif text-xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
-            Research &amp; Projects
+          <h2 className="font-serif text-3xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
+            II. Research &amp; Projects
           </h2>
         </div>
 
@@ -34,7 +34,7 @@ export const Projects: React.FC = () => {
               className={`pb-0.5 transition-colors border-b cursor-pointer ${
                 selectedCategory === category
                   ? 'border-zinc-900 text-zinc-900 dark:border-zinc-50 dark:text-zinc-50'
-                  : 'border-transparent text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-200'
+                  : 'border-transparent text-zinc-400 hover:text-zinc-955 dark:hover:text-zinc-250'
               }`}
             >
               {category}
@@ -54,7 +54,7 @@ export const Projects: React.FC = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.15 }}
               key={project.id}
-              className="flex flex-col sm:flex-row gap-6 pb-8 border-b border-zinc-100 dark:border-zinc-900/40 last:border-b-0"
+              className="flex flex-col sm:flex-row gap-6 pb-8 border-b border-zinc-150 dark:border-zinc-900/40 last:border-b-0"
             >
               {/* Cover Image - Left aligned on desktop */}
               {project.image && (
@@ -74,7 +74,7 @@ export const Projects: React.FC = () => {
                   <h3 className="font-serif text-base font-bold text-zinc-900 dark:text-zinc-50 leading-tight">
                     {project.title}
                   </h3>
-                  <span className="font-mono text-[8px] uppercase tracking-wider font-semibold border border-zinc-200/40 dark:border-zinc-800/40 px-1.5 py-0.5 rounded bg-zinc-50/50 dark:bg-zinc-900/50 text-zinc-505">
+                  <span className="font-mono text-[8px] uppercase tracking-wider font-semibold border border-zinc-200/40 dark:border-zinc-800/40 px-1.5 py-0.5 rounded bg-zinc-50/50 dark:bg-zinc-900/50 text-zinc-500">
                     {project.category}
                   </span>
                 </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,650;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -8,18 +8,22 @@
   --font-serif: 'Lora', Georgia, serif;
   --font-mono: 'Geist Mono', monospace;
 
-  /* Timeless Monochrome & Academic Silver Palette */
-  --color-bg-light: #ffffff;
-  --color-card-light: #ffffff;
-  --color-border-light: #f0f0f0; /* Ultra-thin light border */
-  --color-text-light-primary: #111111; /* Pitch charcoal */
-  --color-text-light-secondary: #666666; /* Elegant grey */
+  /* Biophilic Organic Academic Palette */
+  --color-bg-light: #fcfaf6; /* Warm organic linen */
+  --color-card-light: #ffffff; /* Crisp white for cards */
+  --color-border-light: #e6e3dc; /* Soft clay-colored border */
+  --color-text-light-primary: #1a241b; /* Deep forest charcoal */
+  --color-text-light-secondary: #5a655b; /* Muted sage-charcoal */
 
-  --color-bg-dark: #09090b; /* Pure obsidian */
-  --color-card-dark: #0f0f12;
-  --color-border-dark: #1f1f23; /* Muted dark border */
-  --color-text-dark-primary: #f4f4f5;
-  --color-text-dark-secondary: #999999;
+  --color-bg-dark: #0a0f0c; /* Deep forest obsidian */
+  --color-card-dark: #111613; /* Muted dark emerald */
+  --color-border-dark: #1b241e; /* Dark moss border */
+  --color-text-dark-primary: #cfd8d0; /* Silver-sage */
+  --color-text-dark-secondary: #8c9b8e; /* Sage grey */
+
+  /* Earthy Sage Green */
+  --color-accent-green: #2d5a27;
+  --color-accent-green-bg: #f4f9f4;
 }
 
 /* Custom Scrollbars */
@@ -31,11 +35,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #f0f0f0;
+  background: #e6e3dc;
   border-radius: 4px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #1f1f23;
+  background: #1b241e;
 }
 
 /* Base Body Styles */
@@ -43,9 +47,9 @@ body {
   font-family: var(--font-sans);
   background-color: var(--color-bg-light);
   color: var(--color-text-light-secondary);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .dark body {
@@ -53,23 +57,34 @@ body {
   color: var(--color-text-dark-secondary);
 }
 
-/* Smooth Transitions & Selection colors */
+/* Selection */
 ::selection {
   background-color: #2d5a27;
   color: #ffffff;
 }
 
 .dark ::selection {
-  background-color: #52b788;
-  color: #000000;
+  background-color: #8c9b8e;
+  color: #0a0f0c;
 }
 
-/* Editorial Heading classes */
-h1, h2, h3, h4 {
-  font-family: var(--font-serif);
-  color: var(--color-text-light-primary);
+/* Custom Museum Divider line */
+.museum-divider {
+  height: 1px;
+  background-color: var(--color-border-light);
+  width: 100%;
+}
+.dark .museum-divider {
+  background-color: var(--color-border-dark);
 }
 
-.dark h1, .dark h2, .dark h3, .dark h4 {
-  color: var(--color-text-dark-primary);
+/* Hover glow states */
+.glow-on-hover {
+  transition: all 0.3s ease;
+}
+.glow-on-hover:hover {
+  border-color: #2d5a27;
+}
+.dark .glow-on-hover:hover {
+  border-color: #8c9b8e;
 }

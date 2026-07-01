@@ -17,13 +17,14 @@ const getTypeIcon = (type: string) => {
 
 export const Experience: React.FC = () => {
   return (
-    <div className="space-y-6 text-left">
-      <div className="space-y-1.5">
-        <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-800 dark:text-emerald-500 font-semibold">
-          Credentials
+    <div className="space-y-8 text-left">
+      {/* Museum Header */}
+      <div className="space-y-1.5 border-b border-zinc-200/60 dark:border-zinc-900/60 pb-4">
+        <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-800 dark:text-emerald-500 font-bold">
+          Section III // credentials
         </span>
-        <h2 className="font-geist text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
-          Experience
+        <h2 className="font-serif text-3xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
+          III. Academic Experience
         </h2>
       </div>
 
@@ -56,7 +57,7 @@ export const Experience: React.FC = () => {
             </div>
 
             {/* Bullets */}
-            <ul className="space-y-1.5 list-disc pl-5 text-[11px] text-slate-500 dark:text-zinc-400 font-light leading-relaxed">
+            <ul className="space-y-1.5 list-disc pl-5 text-[11px] text-slate-500 dark:text-zinc-400 font-light leading-relaxed font-sans">
               {exp.details.map((detail, idx) => (
                 <li key={idx} className="marker:text-slate-200 dark:marker:text-slate-800">
                   {detail}

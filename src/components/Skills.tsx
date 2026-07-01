@@ -3,14 +3,14 @@ import skillsData from '../content/skills.json';
 
 export const Skills: React.FC = () => {
   return (
-    <div className="py-12 text-left space-y-8">
-      <div className="space-y-1.5">
-        <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-800 dark:text-emerald-500 font-semibold">
-          Toolbox
-        </span>
-        <h2 className="font-geist text-2xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">
-          Skills &amp; Methodologies
-        </h2>
+    <div className="py-6 text-left space-y-6">
+      <div className="space-y-1">
+        <h3 className="font-serif text-lg font-bold text-slate-900 dark:text-slate-50 tracking-tight">
+          Technical Toolbox
+        </h3>
+        <p className="font-mono text-[8px] uppercase tracking-wider text-zinc-400">
+          Methodologies &amp; tools
+        </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
@@ -19,9 +19,9 @@ export const Skills: React.FC = () => {
             key={index}
             className="space-y-4"
           >
-            <h3 className="font-geist text-xs font-bold text-slate-900 dark:text-slate-200 border-b border-slate-100 dark:border-zinc-900/60 pb-2 uppercase tracking-wider font-mono text-[10px]">
+            <h4 className="font-geist text-xs font-bold text-slate-900 dark:text-slate-200 border-b border-slate-100 dark:border-zinc-900/60 pb-2 uppercase tracking-wider font-mono text-[9px]">
               {categoryObj.category}
-            </h3>
+            </h4>
             <div className="flex flex-wrap gap-1.5">
               {categoryObj.skills.map((skill, idx) => (
                 <span
