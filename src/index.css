@@ -7,31 +7,23 @@
   --font-sans: "Inter", sans-serif;
   --font-mono: "Geist Mono", monospace;
 
-  --color-paper-light: #f7f5f0;
-  --color-ink-light: #1c1b1a;
-  --color-muted-light: #6e6c65;
-  --color-border-light: #e5e2d9;
+  /* Premium Sandstone & Charcoal Design System */
+  --color-paper-light: #e8e5de;
+  --color-ink-light: #1f1e1c;
+  --color-muted-light: #5c5952;
+  --color-border-light: #d0cbc0;
 
-  --color-paper-dark: #0d0d0e;
-  --color-ink-dark: #f4f4f5;
-  --color-muted-dark: #9c9a94;
-  --color-border-dark: #262524;
-
-  --color-sage: #4e6b5e;
-  --color-ochre: #c07851;
-  --color-slate-blue: #5a6b7c;
+  --color-sage: #445d50;
+  --color-ochre: #b36d43;
+  --color-slate-blue: #546b7a;
 }
 
 @layer base {
   body {
     @apply bg-paper-light text-ink-light font-sans transition-colors duration-300 antialiased selection:bg-sage/10 selection:text-sage;
   }
-  
-  .dark body {
-    @apply bg-paper-dark text-ink-dark selection:bg-ochre/20 selection:text-ochre;
-  }
 
-  /* Custom minimal scrollbar for notebook look */
+  /* Custom minimal scrollbar matching the sandstone paper look */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -42,9 +34,6 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-border-light rounded-full transition-colors;
   }
-  .dark ::-webkit-scrollbar-thumb {
-    @apply bg-border-dark;
-  }
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-muted-light/40;
   }
@@ -54,35 +43,21 @@
 .ledger-border-r {
   border-right: 1px solid var(--color-border-light);
 }
-.dark .ledger-border-r {
-  border-right: 1px solid var(--color-border-dark);
-}
 
 .ledger-border-b {
   border-bottom: 1px solid var(--color-border-light);
 }
-.dark .ledger-border-b {
-  border-bottom: 1px solid var(--color-border-dark);
-}
 
 .ledger-border-t {
   border-top: 1px solid var(--color-border-light);
-}
-.dark .ledger-border-t {
-  border-top: 1px solid var(--color-border-dark);
 }
 
 /* Technical rules and grids */
 .field-grid {
   background-size: 24px 24px;
   background-image: 
-    linear-gradient(to right, rgba(229, 226, 217, 0.25) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(229, 226, 217, 0.25) 1px, transparent 1px);
-}
-.dark .field-grid {
-  background-image: 
-    linear-gradient(to right, rgba(38, 37, 36, 0.3) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(38, 37, 36, 0.3) 1px, transparent 1px);
+    linear-gradient(to right, rgba(208, 203, 192, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(208, 203, 192, 0.25) 1px, transparent 1px);
 }
 
 .stamp-box::before {
@@ -94,9 +69,6 @@
   bottom: -4px;
   border: 1px dashed var(--color-border-light);
   pointer-events: none;
-}
-.dark .stamp-box::before {
-  border-color: var(--color-border-dark);
 }
 
 /* Custom transitions and animations */
