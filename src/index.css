@@ -7,23 +7,23 @@
   --font-sans: "Inter", sans-serif;
   --font-mono: "Geist Mono", monospace;
 
-  /* Premium Sandstone & Charcoal Design System */
-  --color-paper-light: #e8e5de;
-  --color-ink-light: #1f1e1c;
-  --color-muted-light: #5c5952;
-  --color-border-light: #d0cbc0;
+  /* Premium Deep Forest & Vintage Cream Design System */
+  --color-paper-light: #1d231f;
+  --color-ink-light: #eae2d5;
+  --color-muted-light: #88938b;
+  --color-border-light: #2c3630;
 
-  --color-sage: #445d50;
-  --color-ochre: #b36d43;
-  --color-slate-blue: #546b7a;
+  --color-sage: #90a496;
+  --color-ochre: #cf8964;
+  --color-slate-blue: #7ba2b8;
 }
 
 @layer base {
   body {
-    @apply bg-paper-light text-ink-light font-sans transition-colors duration-300 antialiased selection:bg-sage/10 selection:text-sage;
+    @apply bg-paper-light text-ink-light font-sans transition-colors duration-300 antialiased selection:bg-sage/20 selection:text-sage;
   }
 
-  /* Custom minimal scrollbar matching the sandstone paper look */
+  /* Custom minimal scrollbar matching the dark forest look */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -56,8 +56,8 @@
 .field-grid {
   background-size: 24px 24px;
   background-image: 
-    linear-gradient(to right, rgba(208, 203, 192, 0.25) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(208, 203, 192, 0.25) 1px, transparent 1px);
+    linear-gradient(to right, rgba(44, 54, 48, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(44, 54, 48, 0.2) 1px, transparent 1px);
 }
 
 .stamp-box::before {
@@ -73,5 +73,11 @@
 
 /* Custom transitions and animations */
 .transition-smooth {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Collaged Polaroid / Sketchbook classes */
+.polaroid-frame {
+  @apply bg-[#eae2d5] text-[#1d231f] border border-[#d6cebf] shadow-xl p-4;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }

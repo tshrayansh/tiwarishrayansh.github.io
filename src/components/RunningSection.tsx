@@ -10,7 +10,7 @@ export const RunningSection: React.FC = () => {
 
       {/* Section Header */}
       <div className="flex items-baseline gap-4 mb-16">
-        <span className="font-mono text-xs text-sage dark:text-ochre">[ SEC. 06 // METABOLICS ]</span>
+        <span className="font-mono text-xs text-sage">[ SEC. 05 // METABOLICS ]</span>
         <h2 className="text-3xl md:text-4xl font-serif font-normal">Endurance Logs</h2>
         <div className="h-[1px] flex-grow ledger-border-b opacity-45" />
       </div>

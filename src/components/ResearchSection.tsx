@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import portfolioData from '../content/portfolio.json';
 
 interface ProjectItem {
@@ -21,7 +21,6 @@ export const ResearchSection: React.FC = () => {
   const { research, education, experience, talks, scholarships } = portfolioData.academics;
   const { cv } = portfolioData.personal;
   const projects = portfolioData.projects as ProjectItem[];
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   const getLinkName = (key: string): string => {
     switch (key) {
@@ -55,79 +54,65 @@ export const ResearchSection: React.FC = () => {
             <span className="font-mono text-[9px] text-muted-light/60">[ CATALOG_INDEX ]</span>
           </div>
 
-          <div className="divide-y divide-border-light">
-            {projects.map((project, idx) => (
-              <div
-                key={project.id}
-                className="py-6 transition-all duration-300 relative group cursor-pointer"
-                onMouseEnter={() => setHoveredId(project.id)}
-                onMouseLeave={() => setHoveredId(null)}
-              >
-                <div className="flex items-baseline justify-between gap-4">
-                  <div className="flex items-baseline gap-4">
-                    <span className="font-mono text-[10px] text-muted-light">
-                      C-{String(idx + 1).padStart(2, '0')}
-                    </span>
-                    <div>
-                      <h4 className="font-serif text-lg font-normal group-hover:text-sage transition-colors leading-tight">
+          <div className="space-y-6">
+            {projects.map((project, idx) => {
+              const rotation = idx % 2 === 0 ? "rotate-[0.5deg]" : "-rotate-[0.8deg]";
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  className={`border border-border-light p-6 rounded bg-paper-light hover:border-sage hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-smooth relative overflow-hidden group ${rotation} hover:rotate-0`}
+                >
+                  <div className="absolute top-0 right-0 w-8 h-8 bg-border-light/10 group-hover:bg-sage/10 transition-colors pointer-events-none flex items-center justify-center font-mono text-[8px] text-muted-light">
+                    {idx + 1}
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="space-y-1">
+                      <span className="font-mono text-[9px] text-sage font-bold">
+                        // C-{String(idx + 1).padStart(2, '0')} // {project.subtitle.toUpperCase()}
+                      </span>
+                      <h4 className="font-serif text-xl font-normal leading-tight text-ink-light group-hover:text-ochre transition-colors">
                         {project.title}
                       </h4>
-                      <p className="font-mono text-[9px] text-muted-light">
-                        {project.subtitle}
-                      </p>
+                    </div>
+
+                    <p className="font-serif text-xs text-muted-light leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-4 items-center pt-2">
+                      <div className="flex gap-3 text-[10px] font-mono">
+                        {Object.entries(project.links).map(([key, val]) => (
+                          <a
+                            key={key}
+                            href={val}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sage hover:text-ochre hover:underline font-bold transition-colors"
+                          >
+                            {getLinkName(key)}
+                          </a>
+                        ))}
+                      </div>
+                      
+                      <span className="text-[10px] font-mono text-muted-light/35">|</span>
+                      
+                      <div className="flex flex-wrap gap-1 text-[8px] font-mono text-muted-light">
+                        {project.tags.map(tag => (
+                          <span key={tag} className="border border-border-light px-1 py-0.5 rounded">
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  <div className="flex gap-1.5 font-mono text-[9px] text-muted-light/60">
-                    {project.tags.slice(0, 2).map(tag => (
-                      <span key={tag} className="border border-border-light px-1 py-0.5 rounded">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Collapsible Details Pane */}
-                <AnimatePresence>
-                  {(hoveredId === project.id || window.innerWidth < 768) && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="overflow-hidden mt-3 pl-8 md:pl-10 space-y-3"
-                    >
-                      <p className="font-serif text-xs text-muted-light leading-relaxed">
-                        {project.description}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-4 items-center">
-                        <div className="flex gap-3 text-[10px] font-mono">
-                          {Object.entries(project.links).map(([key, val]) => (
-                            <a
-                              key={key}
-                              href={val}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-sage hover:underline font-bold"
-                            >
-                              {getLinkName(key)}
-                            </a>
-                          ))}
-                        </div>
-                        <span className="text-[10px] font-mono text-muted-light/35">|</span>
-                        <div className="flex gap-1 text-[8px] font-mono text-muted-light">
-                          {project.tags.map(tag => (
-                            <span key={tag} className="bg-border-light/40 px-1 py-0.5 rounded">
-                              #{tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 

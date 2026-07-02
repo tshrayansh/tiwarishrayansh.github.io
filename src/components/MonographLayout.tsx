@@ -9,9 +9,8 @@ interface MonographLayoutProps {
 
 export const MonographLayout: React.FC<MonographLayoutProps> = ({ children, sectionIds, sectionLabels }) => {
   const { name, title, email, github, linkedin } = portfolioData.personal;
-  const { stats } = portfolioData.running;
-  const [activeSection, setActiveSection] = useState('about');
-  const [mobileTab, setMobileTab] = useState('about');
+  const [activeSection, setActiveSection] = useState('section-about');
+  const [mobileTab, setMobileTab] = useState('section-about');
   const observer = useRef<IntersectionObserver | null>(null);
 
   // Scroll spy observer for desktop view
@@ -56,12 +55,12 @@ export const MonographLayout: React.FC<MonographLayoutProps> = ({ children, sect
           <div className="space-y-4">
             <div className="space-y-2">
               <div className="font-serif text-2xl font-normal leading-none tracking-tight">{name}</div>
-              <div className="font-mono text-[9px] text-muted-light tracking-widest uppercase">
+              <div className="font-mono text-[9px] text-sage tracking-widest uppercase">
                 // {title}
               </div>
             </div>
             
-            <div className="font-mono text-[9px] text-muted-light/60 space-y-0.5">
+            <div className="font-mono text-[9px] text-muted-light space-y-0.5">
               <div>LOC: 18.5204° N, 73.8567° E [PUNE, IN]</div>
               <div>STATUS: EMPIRICAL_STUDY_ACTIVE</div>
             </div>
@@ -80,10 +79,10 @@ export const MonographLayout: React.FC<MonographLayoutProps> = ({ children, sect
                   onClick={() => scrollToSection(id)}
                   className="flex items-center gap-4 w-full text-left font-mono text-xs group transition-all duration-300"
                 >
-                  <span className={`transition-colors duration-300 ${isActive ? 'text-sage font-bold' : 'text-muted-light/40 group-hover:text-ink-light'}`}>
+                  <span className={`transition-colors duration-300 ${isActive ? 'text-ochre font-bold' : 'text-muted-light/40 group-hover:text-ink-light'}`}>
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <span className={`h-[1px] transition-all duration-300 ${isActive ? 'w-8 bg-sage' : 'w-4 bg-border-light group-hover:w-6'}`} />
+                  <span className={`h-[1px] transition-all duration-300 ${isActive ? 'w-8 bg-ochre' : 'w-4 bg-border-light group-hover:w-6'}`} />
                   <span className={`uppercase tracking-wider transition-colors duration-300 ${isActive ? 'text-ink-light font-bold' : 'text-muted-light group-hover:text-ink-light'}`}>
                     {sectionLabels[index]}
                   </span>
@@ -92,28 +91,23 @@ export const MonographLayout: React.FC<MonographLayoutProps> = ({ children, sect
             })}
           </nav>
 
-          {/* Sidebar Integration: Metabolics & Running Stats (Fills empty space beautifully) */}
+          {/* Sidebar Integration: Hand-drawn Bio-Computational Dendrite SVG */}
           <div className="space-y-6">
-            <div className="border-t border-border-light pt-6 space-y-3">
-              <div className="font-mono text-[9px] text-muted-light/60 tracking-wider uppercase">[ METABOLICS_LOG ]</div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <span className="font-mono text-[8px] text-muted-light uppercase block leading-none">Weekly Vol</span>
-                  <span className="font-serif text-sm font-normal text-ink-light">{stats.weeklyVolume}</span>
-                </div>
-                <div>
-                  <span className="font-mono text-[8px] text-muted-light uppercase block leading-none">42.2k PB</span>
-                  <span className="font-serif text-sm font-normal text-ink-light">{stats.personalBest}</span>
-                </div>
-                <div>
-                  <span className="font-mono text-[8px] text-muted-light uppercase block leading-none">Marathons</span>
-                  <span className="font-serif text-sm font-normal text-ink-light">{stats.marathons}</span>
-                </div>
-                <div>
-                  <span className="font-mono text-[8px] text-muted-light uppercase block leading-none">Target Race</span>
-                  <span className="font-serif text-xs font-normal text-ink-light block leading-tight">{stats.nextRace}</span>
-                </div>
-              </div>
+            <div className="border-t border-border-light pt-6 flex flex-col items-center">
+              <svg className="w-full h-32 opacity-25 text-sage" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.5">
+                {/* Asymmetric stem representing branch growth and axonal paths */}
+                <path d="M50 95 C 50 70, 50 40, 50 15" />
+                <path d="M50 75 C 43 68, 30 60, 22 55" />
+                <path d="M50 63 C 58 55, 70 47, 78 40" />
+                <path d="M50 48 C 42 38, 25 30, 18 25" />
+                <path d="M50 35 C 58 25, 72 20, 80 15" />
+                <path d="M50 20 C 44 14, 35 10, 30 5" />
+                {/* Node synapse markers */}
+                <circle cx="22" cy="55" r="1" fill="currentColor" />
+                <circle cx="78" cy="40" r="1" fill="currentColor" />
+                <circle cx="18" cy="25" r="1" fill="currentColor" />
+                <circle cx="80" cy="15" r="1" fill="currentColor" />
+              </svg>
             </div>
 
             {/* Socials & Footer */}
@@ -168,7 +162,7 @@ export const MonographLayout: React.FC<MonographLayoutProps> = ({ children, sect
           })}
         </div>
 
-        {/* Mobile Tab Contents with Animation */}
+        {/* Mobile Tab Contents */}
         <main className="flex-grow p-4 min-h-[70vh]">
           {children.find((child: any) => child.props.id === mobileTab)}
         </main>
