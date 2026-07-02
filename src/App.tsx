@@ -1,3 +1,4 @@
+// Digital logbook and notes — Shrayansh Tiwari
 import React from 'react';
 import { ThemeProvider } from './components/ThemeContext';
 import { About } from './components/About';
