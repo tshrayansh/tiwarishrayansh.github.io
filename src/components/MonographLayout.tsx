@@ -91,22 +91,17 @@ export const MonographLayout: React.FC<MonographLayoutProps> = ({ children, sect
             })}
           </nav>
 
-          {/* Sidebar Integration: Hand-drawn Bio-Computational Dendrite SVG */}
+          {/* Sidebar Integration: Abstract Concentric Node Blueprint */}
           <div className="space-y-6">
             <div className="border-t border-border-light pt-6 flex flex-col items-center">
-              <svg className="w-full h-32 opacity-25 text-sage" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.5">
-                {/* Asymmetric stem representing branch growth and axonal paths */}
-                <path d="M50 95 C 50 70, 50 40, 50 15" />
-                <path d="M50 75 C 43 68, 30 60, 22 55" />
-                <path d="M50 63 C 58 55, 70 47, 78 40" />
-                <path d="M50 48 C 42 38, 25 30, 18 25" />
-                <path d="M50 35 C 58 25, 72 20, 80 15" />
-                <path d="M50 20 C 44 14, 35 10, 30 5" />
-                {/* Node synapse markers */}
-                <circle cx="22" cy="55" r="1" fill="currentColor" />
-                <circle cx="78" cy="40" r="1" fill="currentColor" />
-                <circle cx="18" cy="25" r="1" fill="currentColor" />
-                <circle cx="80" cy="15" r="1" fill="currentColor" />
+              <svg className="w-full h-28 opacity-30 text-sage" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.5">
+                <circle cx="50" cy="50" r="42" strokeDasharray="1.5 1.5" />
+                <circle cx="50" cy="50" r="32" />
+                <circle cx="53" cy="47" r="22" />
+                <circle cx="47" cy="53" r="12" />
+                <circle cx="50" cy="50" r="4" fill="currentColor" />
+                <line x1="50" y1="5" x2="50" y2="95" strokeDasharray="1 1" strokeWidth="0.3" />
+                <line x1="5" y1="50" x2="95" y2="50" strokeDasharray="1 1" strokeWidth="0.3" />
               </svg>
             </div>
 
