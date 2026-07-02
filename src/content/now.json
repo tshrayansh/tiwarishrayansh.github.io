@@ -1,0 +1,28 @@
+{
+  "workingOn": [
+    "Developing agent-based models for bacterial navigation in microfluidic flow networks at the IISER Pune.",
+    "Refactoring an open-source sequence alignment kernel to optimize memory caching on multi-core systems."
+  ],
+  "reading": [
+    {
+      "title": "On Growth and Form",
+      "author": "D'Arcy Wentworth Thompson"
+    },
+    {
+      "title": "Spikes: Exploring the Neural Code",
+      "author": "William Bialek"
+    },
+    {
+      "title": "What is Life?",
+      "author": "Erwin Schrödinger"
+    }
+  ],
+  "trainingFor": [
+    "Endurance runs and trail mileage around the Pune hills.",
+    "Preparing for a sub-3 hour marathon cycle in the coming autumn."
+  ],
+  "exploring": [
+    "Rust compiler internals and WebAssembly compilation for spatial transcriptomic maps.",
+    "Spatial biology, spatial transcriptomics datasets, and fluidic biogeochemical cycles."
+  ]
+}

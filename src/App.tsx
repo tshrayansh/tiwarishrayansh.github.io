@@ -1,34 +1,18 @@
 import React from 'react';
-import { ThemeProvider, useTheme } from './components/ThemeContext';
+import { ThemeProvider } from './components/ThemeContext';
 import { About } from './components/About';
-import { Interests } from './components/Interests';
-import { Projects } from './components/Projects';
-import { Experience } from './components/Experience';
-import { Timeline } from './components/Timeline';
-import { Skills } from './components/Skills';
-import { Publications } from './components/Publications';
-import { Running } from './components/Running';
+import { Work } from './components/Work';
 import { Writing } from './components/Writing';
-import { Resume } from './components/Resume';
-import { FiSun, FiMoon, FiMail, FiGithub, FiLinkedin, FiBookOpen } from 'react-icons/fi';
+import { Now } from './components/Now';
+import { Footer } from './components/Footer';
+import { FiFileText } from 'react-icons/fi';
 import aboutData from './content/about.json';
 
-const SECTIONS = [
-  { id: 'biography', num: '1', title: 'Biography' },
-  { id: 'research', num: '2', title: 'Selected Research' },
-  { id: 'experience', num: '3', title: 'Academic Experience' },
-  { id: 'running', num: '4', title: 'Field Logs & Running' },
-  { id: 'writing', num: '5', title: 'Essays & Notes' },
-  { id: 'resume', num: '6', title: 'Curriculum Vitae' }
-];
-
 const AppContent: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 40;
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -42,125 +26,74 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-transparent text-zinc-600 dark:text-zinc-400 transition-colors duration-300 max-w-2xl mx-auto px-6 py-16 md:py-24 space-y-20 selection:bg-zinc-200 dark:selection:bg-zinc-800">
+    <div className="min-h-screen flex flex-col justify-between max-w-2xl mx-auto px-6 py-6 selection:bg-zinc-200 dark:selection:bg-zinc-800">
       
-      {/* Editorial Header */}
-      <header className="space-y-4 text-left">
-        <div className="space-y-2">
-          <h1 className="font-serif text-3xl md:text-4xl font-normal text-zinc-900 dark:text-zinc-50 tracking-tight">
-            {aboutData.name}
-          </h1>
-          <p className="font-mono text-[10px] tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
-            {aboutData.title}
-          </p>
+      {/* Sticky Editorial Header */}
+      <nav className="sticky top-0 bg-[#fbfaf7]/90 dark:bg-[#09090b]/90 backdrop-blur-md z-50 py-4 border-b border-zinc-200/50 dark:border-zinc-900/50 mb-12 flex items-center justify-between">
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="font-serif text-base font-normal tracking-tight text-zinc-900 dark:text-zinc-50 cursor-pointer"
+        >
+          {aboutData.name}
+        </button>
+
+        <div className="flex gap-4 font-mono text-[10px] tracking-wider text-zinc-400 dark:text-zinc-500 font-bold uppercase">
+          <button onClick={() => scrollToSection('about')} className="hover:text-zinc-900 dark:hover:text-zinc-200 cursor-pointer">
+            [about]
+          </button>
+          <button onClick={() => scrollToSection('work')} className="hover:text-zinc-900 dark:hover:text-zinc-200 cursor-pointer">
+            [work]
+          </button>
+          <button onClick={() => scrollToSection('writing')} className="hover:text-zinc-900 dark:hover:text-zinc-200 cursor-pointer">
+            [writing]
+          </button>
+          <button onClick={() => scrollToSection('now')} className="hover:text-zinc-900 dark:hover:text-zinc-200 cursor-pointer">
+            [now]
+          </button>
+          <a 
+            href={aboutData.cv} 
+            download
+            className="hover:text-zinc-900 dark:hover:text-zinc-200 flex items-center gap-0.5"
+          >
+            <FiFileText className="h-3 w-3" />
+            <span>[cv]</span>
+          </a>
         </div>
+      </nav>
 
-        {/* Minimalist Contact Links */}
-        <div className="flex gap-5 text-zinc-400 dark:text-zinc-500 text-xs font-mono">
-          <a href={aboutData.email} className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1.5" title="Email">
-            <FiMail className="h-3.5 w-3.5" />
-            <span>Email</span>
-          </a>
-          <a href={aboutData.githubLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1.5" title="GitHub">
-            <FiGithub className="h-3.5 w-3.5" />
-            <span>GitHub</span>
-          </a>
-          <a href={aboutData.linkedinLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1.5" title="LinkedIn">
-            <FiLinkedin className="h-3.5 w-3.5" />
-            <span>LinkedIn</span>
-          </a>
-          <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1.5" title="Medium">
-            <FiBookOpen className="h-3.5 w-3.5" />
-            <span>Medium</span>
-          </a>
-        </div>
-      </header>
-
-      {/* Book-Style Table of Contents (TOC) */}
-      <section className="space-y-4 border-t border-b border-zinc-200/50 dark:border-zinc-900/50 py-8">
-        <h2 className="font-mono text-[10px] tracking-widest text-zinc-400 dark:text-zinc-500 uppercase font-bold">
-          Contents
-        </h2>
-        <nav className="space-y-2 text-sm font-serif">
-          {SECTIONS.map((sec) => (
-            <button
-              key={sec.id}
-              onClick={() => scrollToSection(sec.id)}
-              className="flex justify-between items-baseline w-full text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-50 cursor-pointer group text-left"
-            >
-              <span className="flex gap-2">
-                <span className="font-mono text-xs text-zinc-400">{sec.num}.</span>
-                <span className="group-hover:underline">{sec.title}</span>
-              </span>
-              <span className="border-b border-dotted border-zinc-250 dark:border-zinc-800 flex-grow mx-4 h-2 opacity-50" />
-              <span className="font-mono text-xs text-zinc-400">0{sec.num}</span>
-            </button>
-          ))}
-        </nav>
-      </section>
-
-      {/* Main Continuous Document Sections */}
-      <div className="space-y-20">
+      {/* Main Continuous Flow */}
+      <main className="flex-grow space-y-16">
         
-        {/* Section 1: Biography */}
-        <section id="biography" className="space-y-12">
+        {/* About Section */}
+        <section id="about" className="pt-4">
           <About />
-          <Interests />
         </section>
 
-        <hr />
+        <hr className="border-zinc-200/40 dark:border-zinc-900/40" />
 
-        {/* Section 2: Selected Research & Projects */}
-        <section id="research" className="space-y-12">
-          <Projects />
-          <Publications />
-          <Skills />
+        {/* Work Section */}
+        <section id="work" className="pt-4">
+          <Work />
         </section>
 
-        <hr />
+        <hr className="border-zinc-200/40 dark:border-zinc-900/40" />
 
-        {/* Section 3: Academic Experience & Chronology */}
-        <section id="experience" className="space-y-12">
-          <Experience />
-          <Timeline />
-        </section>
-
-        <hr />
-
-        {/* Section 4: Running */}
-        <section id="running">
-          <Running />
-        </section>
-
-        <hr />
-
-        {/* Section 5: Essays & Notes */}
-        <section id="writing">
+        {/* Writing Section */}
+        <section id="writing" className="pt-4">
           <Writing />
         </section>
 
-        <hr />
+        <hr className="border-zinc-200/40 dark:border-zinc-900/40" />
 
-        {/* Section 6: CV */}
-        <section id="resume">
-          <Resume />
+        {/* Now Section */}
+        <section id="now" className="pt-4">
+          <Now />
         </section>
 
-      </div>
+      </main>
 
-      {/* Footer controls & theme switch */}
-      <footer className="border-t border-zinc-200/50 dark:border-zinc-900/50 pt-8 mt-16 flex items-center justify-between text-[10px] font-mono text-zinc-400 dark:text-zinc-600">
-        <span>&copy; {new Date().getFullYear()} Shrayansh. Printed in digital format.</span>
-        
-        <button
-          onClick={toggleTheme}
-          className="rounded-full p-2 text-zinc-400 hover:bg-zinc-100 dark:text-zinc-500 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors cursor-pointer"
-          aria-label="Toggle Theme"
-        >
-          {theme === 'light' ? <FiSun className="h-3.5 w-3.5" /> : <FiMoon className="h-3.5 w-3.5" />}
-        </button>
-      </footer>
-
+      {/* Understated Monograph Footer */}
+      <Footer />
     </div>
   );
 };

@@ -1,15 +1,16 @@
 {
-  "name": "Shrayansh",
-  "title": "Computational Biology & Neuroscience Undergraduate",
-  "tagline": "Exploring the intersection of neural circuits, computational models, and human movement.",
-  "shortBio": "I am a biology student interested in how the brain processes information and how we can use computational tools to model complex biological systems. Beyond the lab, I design web tools and run long distances.",
-  "cvLink": "#",
-  "githubLink": "https://github.com",
-  "linkedinLink": "https://linkedin.com",
-  "email": "mailto:shrayansh@example.com",
-  "storyParagraphs": [
-    "My journey in science started with a simple question: How does a collection of electrical impulses in the brain translate into thoughts, memories, and physical movement? This curiosity led me to pursue a degree in biology, where I quickly realized that traditional lab techniques alone couldn't capture the entire picture. To truly understand complex biological networks, we need to speak the language of mathematics and computation.",
-    "I began teaching myself programming to analyze larger biological datasets, which opened up a new world of scientific inquiry. Now, I spend my time at the intersection of wet-lab neurobiology and dry-lab computational modeling—writing Python scripts to simulate neural spikes, running statistical analyses on genetic expression patterns, and testing hypotheses about brain connectivity.",
-    "Outside the laboratory, you will find me on the trails. Endurance running has taught me the value of patience, deliberate training, and mental resilience—qualities that are just as vital when debugging a complex model or waiting for an experimental assay to run. I founded the Ascent Run Club to share this passion and build a supportive community of individuals who value wellness, consistency, and local exploration."
-  ]
+  "name": "Shrayansh Tiwari",
+  "title": "Biological Sciences & Computation",
+  "tagline": "Studying biological systems at the interface of computational modeling and neurobiology.",
+  "narrative": [
+    "I am an undergraduate student in biological sciences at IISER Pune. I build computational models and write code to explore biological complexity. To me, a computer is a microscope—a tool to model, simulate, and understand biological systems that are too small, fast, or intricate to analyze in isolation.",
+    "When I am not in the lab or at a computer terminal, I run. Long-distance running is where physiology and computation meet in real-time: a biological optimization problem of energy pacing, cardiorespiratory load, and biomechanics. I also organize the Ascent Run Club, a community of endurance runners in Pune where we share trails and steady miles.",
+    "This website is a quiet, personal space on the internet. I prefer libraries over cafés, well-made notebooks over social feeds, and spend my time learning new things and writing rather than shouting about achievements. I build projects to satisfy my curiosity and structure my thoughts."
+  ],
+  "stravaActivitySummaryUrl": "https://www.strava.com/athletes/136768982/activity-summary/5a4225d8f5636085dbc6fc16cefd4c475b406031",
+  "stravaLatestRidesUrl": "https://www.strava.com/athletes/136768982/latest-rides/5a4225d8f5636085dbc6fc16cefd4c475b406031",
+  "email": "mailto:tiwarishrayansh@gmail.com",
+  "github": "https://github.com/tshrayansh",
+  "linkedin": "https://linkedin.com/in/tshrayansh",
+  "cv": "./resume.pdf"
 }

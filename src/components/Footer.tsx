@@ -1,33 +1,35 @@
 import React from 'react';
+import { FiSun, FiMoon, FiFileText } from 'react-icons/fi';
+import { useTheme } from './ThemeContext';
+import aboutData from '../content/about.json';
 
 export const Footer: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-500 dark:text-slate-400 text-sm transition-colors duration-300">
-      <div className="flex flex-col items-center justify-center gap-6 max-w-5xl mx-auto px-6">
-        
-        {/* Quote about curiosity/science */}
-        <div className="text-center max-w-lg space-y-2">
-          <p className="font-geist italic text-slate-600 dark:text-slate-400 font-light leading-relaxed">
-            "The important thing is not to stop questioning. Curiosity has its own reason for existence."
-          </p>
-          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-wider block">
-            — Albert Einstein
-          </span>
-        </div>
-
-        {/* Technical credit and copyright */}
-        <div className="flex flex-col sm:flex-row items-center justify-between w-full border-t border-slate-100 dark:border-slate-900 pt-6 gap-4 text-xs font-mono text-slate-400">
-          <span>
-            &copy; {currentYear} Shrayansh. All rights reserved.
-          </span>
-          <span className="text-right">
-            Built with React &bull; Vite &bull; TypeScript &bull; Tailwind CSS v4
-          </span>
-        </div>
-
+    <footer className="border-t border-zinc-200/50 dark:border-zinc-900/50 pt-8 mt-16 flex items-center justify-between text-[10px] font-mono text-zinc-400 dark:text-zinc-650">
+      <div className="flex items-center gap-4">
+        <span>&copy; {currentYear} Shrayansh Tiwari.</span>
+        <span>&bull;</span>
+        <a 
+          href={aboutData.cv}
+          download
+          className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors flex items-center gap-1 font-bold"
+        >
+          <FiFileText className="h-3 w-3" />
+          <span>[download cv]</span>
+        </a>
       </div>
+      
+      <button
+        onClick={toggleTheme}
+        className="rounded-full p-2 text-zinc-400 hover:bg-zinc-50 dark:text-zinc-500 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors cursor-pointer"
+        aria-label="Toggle Theme"
+      >
+        {theme === 'light' ? <FiMoon className="h-4 w-4" /> : <FiSun className="h-4 w-4" />}
+      </button>
     </footer>
   );
 };
+export default Footer;

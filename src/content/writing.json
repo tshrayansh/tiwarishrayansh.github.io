@@ -2,7 +2,6 @@
   {
     "id": "math-of-memory",
     "title": "The Mathematics of Memory: Modeling Synaptic Strengths",
-    "coverImage": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=600&auto=format&fit=crop",
     "readingTime": "6 min read",
     "date": "June 15, 2026",
     "summary": "An exploration of how differential equations and chemical kinetics can help us understand long-term potentiation in the mammalian hippocampus.",
@@ -11,19 +10,17 @@
   {
     "id": "runners-make-better-coders",
     "title": "Why Endurance Runners Make Better Coders (And Scientists)",
-    "coverImage": "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=600&auto=format&fit=crop",
     "readingTime": "4 min read",
     "date": "April 02, 2026",
-    "summary": "Comparing the mental grit, incremental progress, and hyper-focus required to finish a 100-mile training cycle with debugging complex algorithms.",
+    "summary": "Comparing the mental grit, incremental progress, and hyper-focus required to finish a marathon training cycle with debugging complex systems.",
     "link": "https://medium.com"
   },
   {
     "id": "getting-started-biopython",
     "title": "Getting Started with Biopython for Sequence Analysis",
-    "coverImage": "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?q=80&w=600&auto=format&fit=crop",
     "readingTime": "8 min read",
     "date": "January 20, 2026",
-    "summary": "A practical walk-through of script-based genomic querying, reading FASTA files, and computing codon frequencies using standard libraries.",
+    "summary": "A practical walk-through of script-based genomic querying, reading FASTA files, and computing codon frequencies using Python biological tools.",
     "link": "https://medium.com"
   }
 ]
