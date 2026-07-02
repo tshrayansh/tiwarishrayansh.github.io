@@ -1,0 +1,161 @@
+{
+  "personal": {
+    "name": "Shrayansh Tiwari",
+    "title": "Computational Biologist & Runner",
+    "shortIntro": "Undergraduate scientist studying biological networks, designing computational models, and running long distances.",
+    "bioParagraphs": [
+      "I am an undergraduate student in biological sciences, working at the interface of computation, neurobiology, and complex systems. I spend my time writing code to simulate cellular mechanisms, building mathematical models of synaptic plasticity, and exploring how networks of simple nodes can yield intelligent behaviors.",
+      "Beyond the lab, I am an avid trail and marathon runner. I find a deep connection between the physiological boundaries tested in long-distance running and the complex homeostatic systems I study. Whether analyzing DNA sequences or pacing a tempo run, I seek elegance in systems that adapt and endure.",
+      "This space serves as my digital ledger—a field notebook where my research interests, computational side projects, and film photographs converge. I prefer deep focus, structured books, quiet libraries, and clean engineering."
+    ],
+    "email": "tiwarishrayansh@gmail.com",
+    "github": "https://github.com/tshrayansh",
+    "linkedin": "https://linkedin.com/in/tshrayansh",
+    "cv": "./resume.pdf"
+  },
+  "projects": [
+    {
+      "id": "neural-network",
+      "title": "Hodgkin-Huxley Cortical Circuit Solver",
+      "subtitle": "Neurobiology Simulation",
+      "description": "An interactive numerical solver for the Hodgkin-Huxley equations, modeling action potentials and synaptic integration in small cortical circuits.",
+      "tags": ["Python", "NumPy", "Matplotlib", "WebAssembly"],
+      "links": {
+        "github": "https://github.com/tshrayansh",
+        "documentation": "https://github.com/tshrayansh"
+      }
+    },
+    {
+      "id": "sequence-alignment",
+      "title": "Cache-Optimized Sequence Engine",
+      "subtitle": "Bioinformatics Tool",
+      "description": "A low-level C++ refactoring of local and global sequence alignment kernels, utilizing CPU cache optimizations for large-scale genome analysis.",
+      "tags": ["C++", "Vulkan", "SIMD", "CMake"],
+      "links": {
+        "github": "https://github.com/tshrayansh",
+        "publication": "https://github.com/tshrayansh"
+      }
+    },
+    {
+      "id": "biophilic-gl-visualizer",
+      "title": "L-System Organic Growth Solver",
+      "subtitle": "Algorithmic Visualizer",
+      "description": "A WebGL particle system simulating structural botanical growths and branching networks using L-System grammar rules and noise algorithms.",
+      "tags": ["TypeScript", "WebGL", "GLSL", "Three.js"],
+      "links": {
+        "github": "https://github.com/tshrayansh",
+        "website": "https://github.com/tshrayansh"
+      }
+    }
+  ],
+  "writing": [
+    {
+      "id": "math-of-memory",
+      "title": "The Mathematics of Memory: Modeling Synaptic Strengths",
+      "date": "June 15, 2026",
+      "readingTime": "6 min read",
+      "summary": "An exploration of how differential equations and chemical kinetics can help us model long-term potentiation in the mammalian hippocampus.",
+      "link": "https://medium.com"
+    },
+    {
+      "id": "entropy-in-life",
+      "title": "Entropy, Information, and the Definition of Life",
+      "date": "April 02, 2026",
+      "readingTime": "9 min read",
+      "summary": "A philosophical and mathematical bridge between thermodynamic entropy, Shannon information, and biological self-organization.",
+      "link": "https://medium.com"
+    },
+    {
+      "id": "pace-and-homeostasis",
+      "title": "Pacing Homeostasis: The Physiology of the Wall",
+      "date": "January 11, 2026",
+      "readingTime": "5 min read",
+      "summary": "Analyzing the metabolic transition states during prolonged endurance runs, from glycogen depletion to central nervous system fatigue.",
+      "link": "https://medium.com"
+    }
+  ],
+  "academics": {
+    "research": [
+      "Agent-based modeling of collective biological navigation in complex microfluidic flows.",
+      "Mathematical modeling of synaptic plasticity and calcium-dependent transition states.",
+      "Biogeochemical cycles and metabolic network scaling in closed microbial ecosystems."
+    ],
+    "education": [
+      {
+        "institution": "Indian Institute of Science Education and Research (IISER), Pune",
+        "degree": "BS-MS Dual Degree in Biological Sciences",
+        "duration": "2022 — Present",
+        "description": "Focusing on computational biology, neurobiology, and quantitative physical sciences."
+      }
+    ],
+    "experience": [
+      {
+        "role": "Research Fellow",
+        "organization": "Biophysics Lab, IISER Pune",
+        "duration": "Summer 2025",
+        "description": "Simulated microbial chemotaxis in structured environments using custom stochastic numerical solvers."
+      },
+      {
+        "role": "Teaching Assistant",
+        "organization": "Quantitative Biology Course",
+        "duration": "Spring 2025",
+        "description": "Guided students in programming ordinary differential equations and chemical kinetic models in Python."
+      }
+    ],
+    "talks": [
+      {
+        "title": "Modeling Chemotaxis in Fractured Micro-channels",
+        "event": "National Symposium on Complex Systems, Pune",
+        "date": "November 2025"
+      },
+      {
+        "title": "L-Systems and Botanical Morphogenesis",
+        "event": "Student Seminar Series, Department of Biology",
+        "date": "April 2025"
+      }
+    ],
+    "scholarships": [
+      "DST INSPIRE Fellowship (Government of India, 2022 — Present)",
+      "IISER Summer Undergraduate Research Fellowship (SURF, 2025)"
+    ]
+  },
+  "running": {
+    "stats": {
+      "marathons": "2 Completed",
+      "weeklyVolume": "70–80 km",
+      "nextRace": "Berlin Marathon (Sept 2026)",
+      "personalBest": "2:58:45"
+    },
+    "highlights": [
+      "Active organizer of the Ascent Run Club in Pune, hosting weekly track sessions and trail runs.",
+      "Finished local mountain marathon (2,100m elevation gain) in 4th place overall.",
+      "Currently analyzing running gait biomechanics using open-source video analysis scripts."
+    ]
+  },
+  "photography": [
+    {
+      "id": "biology-structure",
+      "title": "Chlorophyll Lattice",
+      "category": "Biology",
+      "src": "./images/biology_macro.png"
+    },
+    {
+      "id": "endurance-trail",
+      "title": "Ridge Path at Dawn",
+      "category": "Endurance",
+      "src": "./images/trail_runner.png"
+    },
+    {
+      "id": "study-library",
+      "title": "Folios & Ink",
+      "category": "Spaces",
+      "src": "./images/library_books.png"
+    },
+    {
+      "id": "optics-camera",
+      "title": "Focal Glass",
+      "category": "Optics",
+      "src": "./images/camera_lens.png"
+    }
+  ]
+}

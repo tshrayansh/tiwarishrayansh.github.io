@@ -1,87 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Lora', Georgia, serif;
-  --font-mono: 'Geist Mono', monospace;
+  --font-serif: "Lora", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Geist Mono", monospace;
 
-  /* Premium Alabaster Monograph Colors */
-  --color-bg-light: #fbfaf7; /* Warm alabaster linen paper */
-  --color-text-light-primary: #1c1b1a; /* Warm black ink */
-  --color-text-light-secondary: #5e5c56; /* Soft charcoal */
-  --color-border-light: #e5e3df; /* Warm grey rule */
+  --color-paper-light: #f7f5f0;
+  --color-ink-light: #1c1b1a;
+  --color-muted-light: #6e6c65;
+  --color-border-light: #e5e2d9;
 
-  --color-bg-dark: #09090b; /* Pure slate black */
-  --color-text-dark-primary: #f4f4f5; /* Clean white */
-  --color-text-dark-secondary: #a1a1aa; /* Slate grey */
-  --color-border-dark: #1e1e24; /* Muted dark rule */
-}
+  --color-paper-dark: #0d0d0e;
+  --color-ink-dark: #f4f4f5;
+  --color-muted-dark: #9c9a94;
+  --color-border-dark: #262524;
 
-/* Custom Scrollbars */
-::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #e5e3df;
-  border-radius: 4px;
-}
-.dark ::-webkit-scrollbar-thumb {
-  background: #1e1e24;
+  --color-sage: #4e6b5e;
+  --color-ochre: #c07851;
+  --color-slate-blue: #5a6b7c;
 }
 
-/* Base Body Styles */
-body {
-  font-family: var(--font-sans);
-  background-color: var(--color-bg-light);
-  color: var(--color-text-light-secondary);
-  transition: background-color 0.2s ease, color 0.2s ease;
-  overflow-x: hidden;
-  line-height: 1.7;
+@layer base {
+  body {
+    @apply bg-paper-light text-ink-light font-sans transition-colors duration-300 antialiased selection:bg-sage/10 selection:text-sage;
+  }
+  
+  .dark body {
+    @apply bg-paper-dark text-ink-dark selection:bg-ochre/20 selection:text-ochre;
+  }
+
+  /* Custom minimal scrollbar for notebook look */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-light rounded-full transition-colors;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-border-dark;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-light/40;
+  }
 }
 
-.dark body {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-dark-secondary);
+/* Ledger line decorations and alignment utilities */
+.ledger-border-r {
+  border-right: 1px solid var(--color-border-light);
+}
+.dark .ledger-border-r {
+  border-right: 1px solid var(--color-border-dark);
 }
 
-/* Typography Defaults */
-h1, h2, h3, h4 {
-  font-family: var(--font-serif);
-  color: var(--color-text-light-primary);
-  font-weight: 500;
-  letter-spacing: -0.02em;
+.ledger-border-b {
+  border-bottom: 1px solid var(--color-border-light);
+}
+.dark .ledger-border-b {
+  border-bottom: 1px solid var(--color-border-dark);
 }
 
-.dark h1, .dark h2, .dark h3, .dark h4 {
-  color: var(--color-text-dark-primary);
+.ledger-border-t {
+  border-top: 1px solid var(--color-border-light);
+}
+.dark .ledger-border-t {
+  border-top: 1px solid var(--color-border-dark);
 }
 
-a {
-  color: var(--color-text-light-primary);
-  text-decoration: none;
-  transition: opacity 0.15s ease;
+/* Technical rules and grids */
+.field-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(229, 226, 217, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 226, 217, 0.25) 1px, transparent 1px);
 }
-.dark a {
-  color: var(--color-text-dark-primary);
-}
-a:hover {
-  opacity: 0.8;
+.dark .field-grid {
+  background-image: 
+    linear-gradient(to right, rgba(38, 37, 36, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(38, 37, 36, 0.3) 1px, transparent 1px);
 }
 
-/* Document divider styling */
-hr {
-  border: 0;
-  height: 1px;
-  background-color: var(--color-border-light);
-  margin: 3rem 0;
+.stamp-box::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 1px dashed var(--color-border-light);
+  pointer-events: none;
 }
-.dark hr {
-  background-color: var(--color-border-dark);
+.dark .stamp-box::before {
+  border-color: var(--color-border-dark);
+}
+
+/* Custom transitions and animations */
+.transition-smooth {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
