@@ -1,16 +1,28 @@
 /* -------------------------------------------------------------
- * Earthy Taupe & Warm Cream Design System — style.css
+ * Earthy Collage & Prussian Slate Theme — style.css
  * ------------------------------------------------------------- */
 
 /* Theme Variables */
 :root {
-  --color-bg: #282522;
-  --color-text: #eae3d2;
-  --color-muted: #8a8376;
-  --color-border: #3e3a35;
+  --color-bg: #1c212b; /* Deep Prussian Slate (Glre-free, high-end base) */
+  --color-text: #eae3d2; /* Warm Cream Ink */
+  --color-muted: #7c8796; /* Slate-Grey for secondary labels */
+  --color-border: #2d3545; /* Navy-Clay dividers */
+  
   --color-sage: #90a496;
   --color-ochre: #cf8964;
+  --color-coral: #e07a5f; /* Vibrant Coral Pacing Accent */
   --color-slate-blue: #7ba2b8;
+  
+  /* Collaged Card Papers */
+  --color-card-project: #2b2724; /* Earthy Charcoal-Brown */
+  --color-card-project-border: #473e39;
+  
+  --color-card-focus: #2f2b23; /* Warm Clay */
+  --color-card-focus-border: #453f34;
+  
+  --color-card-strava: #222a2e; /* Deep Slate-Teal */
+  --color-card-strava-border: #354147;
   
   --font-serif: "Lora", serif;
   --font-sans: "Inter", sans-serif;
@@ -41,8 +53,8 @@ body {
 .field-grid {
   background-size: 24px 24px;
   background-image: 
-    linear-gradient(to right, rgba(62, 58, 53, 0.25) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(62, 58, 53, 0.25) 1px, transparent 1px);
+    linear-gradient(to right, rgba(45, 53, 69, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(45, 53, 69, 0.25) 1px, transparent 1px);
 }
 
 /* Custom Scrollbars */
@@ -59,7 +71,7 @@ body {
   transition: background 0.3s;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(138, 131, 118, 0.4);
+  background: rgba(124, 135, 150, 0.4);
 }
 
 /* Structural Borders */
@@ -94,14 +106,12 @@ body {
   }
 
   #sidebar {
-    grid-span: 4;
     grid-column: span 4;
     height: 100vh;
     position: sticky;
     top: 0;
     padding: 3rem;
     display: flex;
-    flex-col: column;
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--color-bg);
@@ -109,7 +119,6 @@ body {
   }
 
   #content-deck {
-    grid-span: 8;
     grid-column: span 8;
     overflow-y: auto;
   }
@@ -117,11 +126,11 @@ body {
   .content-section {
     min-height: 100vh;
     padding: 5rem 3rem;
-    display: block; /* Show all sections on desktop for scrolling */
+    display: block;
   }
   
   .mobile-section-header {
-    display: none; /* Hide metadata on desktop */
+    display: none;
   }
 }
 
@@ -168,7 +177,7 @@ body {
 .nav-label {
   font-family: var(--font-mono);
   font-size: 9px;
-  color: rgba(138, 131, 118, 0.5);
+  color: rgba(124, 135, 150, 0.4);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 1rem;
@@ -190,7 +199,7 @@ body {
 }
 
 .nav-num {
-  color: rgba(138, 131, 118, 0.4);
+  color: rgba(124, 135, 150, 0.4);
   transition: color 0.3s;
 }
 
@@ -218,12 +227,12 @@ body {
 }
 
 .nav-link.active .nav-num {
-  color: var(--color-ochre);
+  color: var(--color-coral);
   font-weight: 700;
 }
 .nav-link.active .nav-indicator {
   width: 2rem;
-  background-color: var(--color-ochre);
+  background-color: var(--color-coral);
 }
 .nav-link.active .nav-text {
   color: var(--color-text);
@@ -246,7 +255,7 @@ body {
 
 .blueprint-svg {
   width: 100%;
-  height: 7rem;
+  height: 6rem;
   opacity: 0.3;
   color: var(--color-sage);
 }
@@ -289,7 +298,7 @@ body {
  * ------------------------------------------------------------- */
 @media (max-width: 1023px) {
   #sidebar {
-    display: none; /* Hide desktop sidebar */
+    display: none;
   }
 
   #mobile-shell {
@@ -301,7 +310,7 @@ body {
   }
 
   #mobile-header {
-    background-color: rgba(40, 37, 34, 0.95);
+    background-color: rgba(28, 33, 43, 0.95);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--color-border);
     padding: 1rem;
@@ -337,11 +346,11 @@ body {
     border-bottom: 1px solid var(--color-border);
     padding: 0.5rem;
     gap: 0.25rem;
-    scrollbar-width: none; /* Hide firefox scrollbar */
+    scrollbar-width: none;
   }
   
   #mobile-tab-bar::-webkit-scrollbar {
-    display: none; /* Hide chrome scrollbar */
+    display: none;
   }
 
   .mobile-tab {
@@ -366,18 +375,18 @@ body {
     font-weight: 700;
   }
 
-  /* Mobile Content Display Layer (Shows ONLY active tab) */
+  /* Mobile Content Display Layer */
   #content-deck {
     padding: 1rem;
     min-height: 70vh;
   }
 
   .content-section {
-    display: none; /* Hide inactive sections on mobile */
+    display: none;
   }
 
   .content-section.active {
-    display: block; /* Show only active section */
+    display: block;
   }
 }
 
@@ -479,7 +488,7 @@ body {
   background-color: #eae2d5;
   color: #1d231f;
   border: 1px solid #d6cebf;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
   padding: 1rem;
   max-width: 240px;
   transform: rotate(-2deg);
@@ -548,17 +557,17 @@ body {
 }
 
 .focus-card {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-card-focus-border);
+  background-color: var(--color-card-focus);
   padding: 1.5rem;
   border-radius: 4px;
-  background-color: var(--color-bg);
   position: relative;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .focus-card:hover {
-  border-color: var(--color-sage);
+  border-color: var(--color-ochre);
 }
 
 .focus-stamp {
@@ -567,20 +576,20 @@ body {
   right: 0;
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--color-border);
+  color: var(--color-card-focus-border);
   padding: 0.5rem;
   font-weight: 700;
   user-select: none;
 }
 
 .focus-card:hover .focus-stamp {
-  color: rgba(144, 164, 150, 0.15);
+  color: rgba(207, 137, 100, 0.15);
 }
 
 .focus-code {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--color-sage);
+  color: var(--color-ochre);
   margin-bottom: 0.25rem;
 }
 
@@ -610,7 +619,7 @@ body {
 .section-number {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--color-sage);
+  color: var(--color-coral);
 }
 
 .section-title {
@@ -672,10 +681,10 @@ body {
 
 /* Rotated cards in scrapbook stack */
 .scrapbook-card {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-card-project-border);
+  background-color: var(--color-card-project);
   padding: 1.5rem;
   border-radius: 4px;
-  background-color: var(--color-bg);
   position: relative;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -692,9 +701,9 @@ body {
 }
 
 .scrapbook-card:hover {
-  border-color: var(--color-sage);
+  border-color: var(--color-coral);
   transform: rotate(0deg) translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
 .card-number {
@@ -703,7 +712,7 @@ body {
   right: 0;
   width: 2rem;
   height: 2rem;
-  background-color: rgba(62, 58, 53, 0.1);
+  background-color: rgba(71, 62, 57, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -713,13 +722,13 @@ body {
 }
 
 .scrapbook-card:hover .card-number {
-  background-color: rgba(144, 164, 150, 0.1);
+  background-color: rgba(224, 122, 95, 0.15);
 }
 
 .card-code {
   font-family: var(--font-mono);
   font-size: 9px;
-  color: var(--color-sage);
+  color: var(--color-coral);
   font-weight: 700;
   display: block;
   margin-bottom: 0.25rem;
@@ -753,7 +762,7 @@ body {
   gap: 1rem;
   margin-top: 1rem;
   padding-top: 0.75rem;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-card-project-border);
 }
 
 .card-links {
@@ -778,7 +787,7 @@ body {
 .card-divider-slash {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: rgba(138, 131, 118, 0.3);
+  color: rgba(124, 133, 150, 0.3);
 }
 
 .card-tags {
@@ -791,7 +800,7 @@ body {
 }
 
 .card-tags span {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-card-project-border);
   padding: 0.125rem 0.25rem;
   border-radius: 2px;
 }
@@ -838,7 +847,7 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 9999px;
-  background-color: var(--color-sage);
+  background-color: var(--color-coral);
 }
 
 .timeline-title {
@@ -907,7 +916,7 @@ body {
 .edu-date {
   font-family: var(--font-mono);
   font-size: 8px;
-  color: rgba(138, 131, 118, 0.6);
+  color: rgba(124, 135, 150, 0.6);
   margin-top: 0.125rem;
 }
 
@@ -933,7 +942,7 @@ body {
   align-items: baseline;
   gap: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(62, 58, 53, 0.15);
+  border-bottom: 1px solid rgba(45, 53, 69, 0.35);
 }
 
 .presentation-row:last-child {
@@ -980,8 +989,8 @@ body {
   align-items: center;
   gap: 0.5rem;
   font-size: 10px;
-  color: var(--color-sage);
-  border: 1px solid rgba(144, 164, 150, 0.4);
+  color: var(--color-coral);
+  border: 1px solid rgba(224, 122, 95, 0.4);
   padding: 0.5rem 0.875rem;
   border-radius: 4px;
   text-decoration: none;
@@ -990,7 +999,7 @@ body {
 }
 
 .cv-download-btn:hover {
-  background-color: rgba(144, 164, 150, 0.05);
+  background-color: rgba(224, 122, 95, 0.05);
 }
 
 /* -------------------------------------------------------------
@@ -1187,10 +1196,10 @@ body {
 
 /* Strava Placeholder Frame */
 .strava-placeholder {
-  border: 1px dashed var(--color-border);
+  border: 1px dashed var(--color-card-strava-border);
   padding: 1.5rem;
   border-radius: 4px;
-  background-color: rgba(40, 37, 34, 0.3);
+  background-color: var(--color-card-strava);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1204,13 +1213,13 @@ body {
   width: 3rem;
   height: 3rem;
   border-radius: 9999px;
-  border: 1px dashed rgba(144, 164, 150, 0.5);
+  border: 1px dashed rgba(123, 162, 184, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--color-sage);
+  color: var(--color-slate-blue);
 }
 
 .strava-header {
@@ -1234,7 +1243,7 @@ body {
 }
 
 .strava-code-box {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-card-strava-border);
   background-color: var(--color-bg);
   padding: 0.75rem;
   border-radius: 4px;
