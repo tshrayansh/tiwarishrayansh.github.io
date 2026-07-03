@@ -1,0 +1,1326 @@
+/* -------------------------------------------------------------
+ * Earthy Taupe & Warm Cream Design System — style.css
+ * ------------------------------------------------------------- */
+
+/* Theme Variables */
+:root {
+  --color-bg: #282522;
+  --color-text: #eae3d2;
+  --color-muted: #8a8376;
+  --color-border: #3e3a35;
+  --color-sage: #90a496;
+  --color-ochre: #cf8964;
+  --color-slate-blue: #7ba2b8;
+  
+  --font-serif: "Lora", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+}
+
+/* Base resets & resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background grid background */
+.field-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(62, 58, 53, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(62, 58, 53, 0.25) 1px, transparent 1px);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+  transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(138, 131, 118, 0.4);
+}
+
+/* Structural Borders */
+.ledger-border-r {
+  border-right: 1px solid var(--color-border);
+}
+.ledger-border-b {
+  border-bottom: 1px solid var(--color-border);
+}
+.ledger-border-t {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Layout Wrapper */
+#app-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Hide Mobile Elements on Desktop */
+#mobile-shell {
+  display: none;
+}
+
+/* -------------------------------------------------------------
+ * 1. DESKTOP SIDEBAR NAVIGATION (lg viewport)
+ * ------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  #app-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  #sidebar {
+    grid-span: 4;
+    grid-column: span 4;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 3rem;
+    display: flex;
+    flex-col: column;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-bg);
+    z-index: 40;
+  }
+
+  #content-deck {
+    grid-span: 8;
+    grid-column: span 8;
+    overflow-y: auto;
+  }
+
+  .content-section {
+    min-height: 100vh;
+    padding: 5rem 3rem;
+    display: block; /* Show all sections on desktop for scrolling */
+  }
+  
+  .mobile-section-header {
+    display: none; /* Hide metadata on desktop */
+  }
+}
+
+/* Sidebar Elements (Desktop Only) */
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.brand-title {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-sage);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+.coordinates {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+/* Desktop Contents Link Navigation */
+#desktop-nav {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.nav-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: rgba(138, 131, 118, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text);
+  outline: none;
+}
+
+.nav-num {
+  color: rgba(138, 131, 118, 0.4);
+  transition: color 0.3s;
+}
+
+.nav-indicator {
+  height: 1px;
+  width: 1rem;
+  background-color: var(--color-border);
+  transition: all 0.3s;
+}
+
+.nav-text {
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+
+/* Hover & Active States for Desktop Navigation */
+.nav-link:hover .nav-indicator {
+  width: 1.5rem;
+  background-color: var(--color-text);
+}
+.nav-link:hover .nav-text {
+  color: var(--color-text);
+}
+
+.nav-link.active .nav-num {
+  color: var(--color-ochre);
+  font-weight: 700;
+}
+.nav-link.active .nav-indicator {
+  width: 2rem;
+  background-color: var(--color-ochre);
+}
+.nav-link.active .nav-text {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* Sidebar Graphics & Socials */
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.blueprint-container {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.blueprint-svg {
+  width: 100%;
+  height: 7rem;
+  opacity: 0.3;
+  color: var(--color-sage);
+}
+
+.sidebar-socials {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.social-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--color-sage);
+}
+
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-muted);
+}
+
+/* -------------------------------------------------------------
+ * 2. MOBILE VIEW NAVIGATION (sm/md viewports)
+ * ------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  #sidebar {
+    display: none; /* Hide desktop sidebar */
+  }
+
+  #mobile-shell {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--color-bg);
+  }
+
+  #mobile-header {
+    background-color: rgba(40, 37, 34, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-name {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+
+  .mobile-title {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .mobile-coordinates {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    color: var(--color-sage);
+  }
+
+  /* Mobile Horizontal Tab Navigation */
+  #mobile-tab-bar {
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem;
+    gap: 0.25rem;
+    scrollbar-width: none; /* Hide firefox scrollbar */
+  }
+  
+  #mobile-tab-bar::-webkit-scrollbar {
+    display: none; /* Hide chrome scrollbar */
+  }
+
+  .mobile-tab {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    background: transparent;
+    border: none;
+    color: var(--color-muted);
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  .mobile-tab.active {
+    background-color: var(--color-border);
+    color: var(--color-sage);
+    font-weight: 700;
+  }
+
+  /* Mobile Content Display Layer (Shows ONLY active tab) */
+  #content-deck {
+    padding: 1rem;
+    min-height: 70vh;
+  }
+
+  .content-section {
+    display: none; /* Hide inactive sections on mobile */
+  }
+
+  .content-section.active {
+    display: block; /* Show only active section */
+  }
+}
+
+/* -------------------------------------------------------------
+ * 3. ABOUT SECTION STYLE DEFINITIONS
+ * ------------------------------------------------------------- */
+.hero-statement {
+  max-width: 48rem;
+  margin-bottom: 4rem;
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-sage);
+  border: 1px solid rgba(144, 164, 150, 0.3);
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.hero-text {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero-text {
+    font-size: 3.5rem;
+  }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .about-bio {
+    grid-column: span 8;
+  }
+  .about-photo-wrapper {
+    grid-column: span 4;
+  }
+}
+
+.bio-dropcap {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.bio-dropcap::first-letter {
+  font-size: 3.25rem;
+  font-family: var(--font-serif);
+  float: left;
+  margin-right: 0.5rem;
+  line-height: 1;
+  color: var(--color-sage);
+}
+
+.bio-text {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+  margin-top: 1rem;
+}
+
+/* Polaroid Collage Item */
+.about-photo-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.paperclip-svg {
+  position: absolute;
+  top: -1rem;
+  left: 33%;
+  width: 1.5rem;
+  height: 3rem;
+  color: #9ca3af;
+  transform: rotate(-12deg);
+  z-index: 20;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.15));
+}
+
+.polaroid-frame {
+  background-color: #eae2d5;
+  color: #1d231f;
+  border: 1px solid #d6cebf;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  max-width: 240px;
+  transform: rotate(-2deg);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.polaroid-image-container {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border: 1px solid #c2bab0;
+  overflow: hidden;
+  background-color: #1c1917;
+}
+
+.polaroid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) brightness(0.95) contrast(1.05);
+}
+
+.polaroid-caption {
+  padding-top: 0.75rem;
+  padding-bottom: 0.25rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  user-select: none;
+}
+
+/* Focus Index Cards */
+.focus-matrix-container {
+  margin-top: 3rem;
+}
+
+.section-label-small {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .focus-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .focus-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.focus-card {
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  border-radius: 4px;
+  background-color: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.focus-card:hover {
+  border-color: var(--color-sage);
+}
+
+.focus-stamp {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-border);
+  padding: 0.5rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.focus-card:hover .focus-stamp {
+  color: rgba(144, 164, 150, 0.15);
+}
+
+.focus-code {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-sage);
+  margin-bottom: 0.25rem;
+}
+
+.focus-title {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.focus-desc {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------
+ * 4. RESEARCH / DOSSIER SECTION STYLE DEFINITIONS
+ * ------------------------------------------------------------- */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-sage);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.section-line {
+  height: 1px;
+  flex-grow: 1;
+  border-bottom: 1px solid var(--color-border);
+  opacity: 0.45;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .research-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .xl-pl-6 {
+    padding-left: 1.5rem;
+  }
+}
+
+.col-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.col-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-sage);
+}
+
+.col-meta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-muted);
+}
+
+.scrapbook-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Rotated cards in scrapbook stack */
+.scrapbook-card {
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  border-radius: 4px;
+  background-color: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scrapbook-card.rotate-1 {
+  transform: rotate(0.5deg);
+}
+.scrapbook-card.rotate-neg-1 {
+  transform: rotate(-0.8deg);
+}
+.scrapbook-card.rotate-05 {
+  transform: rotate(0.4deg);
+}
+
+.scrapbook-card:hover {
+  border-color: var(--color-sage);
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.card-number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgba(62, 58, 53, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--color-muted);
+}
+
+.scrapbook-card:hover .card-number {
+  background-color: rgba(144, 164, 150, 0.1);
+}
+
+.card-code {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-sage);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text);
+  transition: color 0.3s;
+}
+
+.scrapbook-card:hover .card-title {
+  color: var(--color-ochre);
+}
+
+.card-desc {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+.card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.card-links {
+  display: flex;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.card-links a {
+  color: var(--color-sage);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.card-links a:hover {
+  color: var(--color-ochre);
+  text-decoration: underline;
+}
+
+.card-divider-slash {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(138, 131, 118, 0.3);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--color-muted);
+}
+
+.card-tags span {
+  border: 1px solid var(--color-border);
+  padding: 0.125rem 0.25rem;
+  border-radius: 2px;
+}
+
+/* Wet Lab Timeline and Academic Details */
+.dossier-list-unstyled {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dossier-list-unstyled li {
+  display: flex;
+  gap: 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.list-num {
+  font-family: var(--font-mono);
+  color: var(--color-sage);
+}
+
+.experience-timeline {
+  border-left: 1px solid var(--color-border);
+  padding-left: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -28.5px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--color-sage);
+}
+
+.timeline-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.timeline-org {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.timeline-desc {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.sub-col-title {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.academic-splits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .academic-splits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.edu-institution {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.edu-degree {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-muted);
+  margin-top: 0.125rem;
+}
+
+.edu-date {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: rgba(138, 131, 118, 0.6);
+  margin-top: 0.125rem;
+}
+
+.dossier-list-bullets {
+  padding-left: 1rem;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.presentations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.presentation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(62, 58, 53, 0.15);
+}
+
+.presentation-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.presentation-title {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--color-text);
+}
+
+.presentation-event {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--color-muted);
+}
+
+.presentation-date {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.academic-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.academic-disclaimer {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--color-muted);
+  max-width: 15rem;
+}
+
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 10px;
+  color: var(--color-sage);
+  border: 1px solid rgba(144, 164, 150, 0.4);
+  padding: 0.5rem 0.875rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.cv-download-btn:hover {
+  background-color: rgba(144, 164, 150, 0.05);
+}
+
+/* -------------------------------------------------------------
+ * 5. WRITING SECTION STYLE DEFINITIONS
+ * ------------------------------------------------------------- */
+.writing-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.writing-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .writing-row {
+    grid-template-columns: 160px 1fr;
+  }
+}
+
+.writing-meta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-muted);
+}
+
+.writing-readtime {
+  margin-top: 0.25rem;
+}
+
+.writing-title a {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.writing-title a:hover {
+  color: var(--color-ochre);
+}
+
+.writing-summary {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* -------------------------------------------------------------
+ * 6. PHOTOGRAPHY / OPTICS STYLE DEFINITIONS
+ * ------------------------------------------------------------- */
+.photo-wall {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .photo-wall {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  aspect-ratio: 4/3;
+  cursor: zoom-in;
+  background-color: #121212;
+}
+
+.photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
+  filter: grayscale(0.2) contrast(1.02);
+}
+
+.photo-card:hover .photo-img {
+  transform: scale(1.05);
+  filter: grayscale(0) contrast(1.05);
+}
+
+.photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.photo-card:hover .photo-overlay {
+  opacity: 1;
+}
+
+.photo-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.photo-title {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 400;
+}
+
+.photo-specs {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: #a1a1aa;
+}
+
+.photo-badge {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 0.125rem 0.375rem;
+  border-radius: 2px;
+}
+
+/* -------------------------------------------------------------
+ * 7. RUNNING / METABOLICS STYLE DEFINITIONS
+ * ------------------------------------------------------------- */
+.running-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .running-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .running-left {
+    grid-column: span 6;
+  }
+  .running-right {
+    grid-column: span 6;
+  }
+}
+
+.running-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.stat-box {
+  border: 1px solid var(--color-border);
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: var(--color-bg);
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.stat-value {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 400;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* Strava Placeholder Frame */
+.strava-placeholder {
+  border: 1px dashed var(--color-border);
+  padding: 1.5rem;
+  border-radius: 4px;
+  background-color: rgba(40, 37, 34, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 360px;
+  gap: 1.5rem;
+}
+
+.strava-gps-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  border: 1px dashed rgba(144, 164, 150, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-sage);
+}
+
+.strava-header {
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.strava-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.strava-desc {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.strava-code-box {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 9px;
+  color: var(--color-muted);
+  user-select: all;
+  max-width: 100%;
+  overflow-x: auto;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------------
+ * 8. PERSISTENT LIGHTBOX MODAL STYLES
+ * ------------------------------------------------------------- */
+#lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(12, 11, 10, 0.95);
+  z-index: 100;
+  cursor: zoom-out;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+
+#lightbox-img {
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  border-radius: 2px;
+  transform: scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#lightbox.active #lightbox-img {
+  transform: scale(1);
+}
+
+#lightbox-caption {
+  margin-top: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+#lightbox-title {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  color: #fff;
+}
+
+#lightbox-specs {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #a1a1aa;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: #a1a1aa;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.3s;
+  user-select: none;
+}
+
+.lightbox-close:hover {
+  color: #fff;
+}

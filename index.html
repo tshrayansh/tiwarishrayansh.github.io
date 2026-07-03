@@ -1,32 +1,606 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shrayansh Tiwari — Computational Biologist & Runner</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Personal portfolio and research logbook of Shrayansh Tiwari, undergraduate researcher in biological sciences and computational biology at IISER Pune, and marathon runner.">
+  <meta name="keywords" content="Shrayansh Tiwari, Computational Biology, Neurobiology, IISER Pune, Running, Bioinformatics, Systems Biology">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="field-grid">
+
+  <!-- Core Layout Wrapper -->
+  <div id="app-container">
     
-    <!-- SEO Headers -->
-    <title>Shrayansh | Computational Biology &amp; Neuroscience</title>
-    <meta name="description" content="Personal website of Shrayansh, a biology undergraduate student exploring the intersection of neurobiology, computation, research, and endurance sports." />
-    <meta name="keywords" content="Shrayansh, Computational Biology, Neuroscience, Neurobiology, Bioinformatician, IISER, Ascent Run Club, Runner" />
-    <meta name="author" content="Shrayansh" />
+    <!-- 1. DESKTOP SIDEBAR / MOCKBOOK TOC -->
+    <aside id="sidebar" class="ledger-border-r">
+      <div class="sidebar-top">
+        <div class="brand">
+          <h1 class="brand-name">Shrayansh Tiwari</h1>
+          <div class="brand-title">// Computational Biologist & Runner</div>
+        </div>
+        <div class="coordinates">
+          <div>LOC: 18.5204° N, 73.8567° E [PUNE, IN]</div>
+          <div>STATUS: EMPIRICAL_STUDY_ACTIVE</div>
+        </div>
+      </div>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tshrayansh.github.io/personal-web" />
-    <meta property="og:title" content="Shrayansh | Computational Biology &amp; Neuroscience" />
-    <meta property="og:description" content="Biology student exploring neuroscience, computation, and endurance sports." />
-    <meta property="og:image" content="./profile.jpeg" />
+      <!-- Navigation Index Spy Links -->
+      <nav id="desktop-nav">
+        <div class="nav-label">[ CONTENTS // INDEX ]</div>
+        
+        <button onclick="scrollToSection('section-about')" class="nav-link active" data-target="section-about">
+          <span class="nav-num">01</span>
+          <span class="nav-indicator"></span>
+          <span class="nav-text">ABOUT</span>
+        </button>
+        
+        <button onclick="scrollToSection('section-research')" class="nav-link" data-target="section-research">
+          <span class="nav-num">02</span>
+          <span class="nav-indicator"></span>
+          <span class="nav-text">DOSSIER</span>
+        </button>
+        
+        <button onclick="scrollToSection('section-writing')" class="nav-link" data-target="section-writing">
+          <span class="nav-num">03</span>
+          <span class="nav-indicator"></span>
+          <span class="nav-text">WRITING</span>
+        </button>
+        
+        <button onclick="scrollToSection('section-photography')" class="nav-link" data-target="section-photography">
+          <span class="nav-num">04</span>
+          <span class="nav-indicator"></span>
+          <span class="nav-text">OPTICS</span>
+        </button>
+        
+        <button onclick="scrollToSection('section-running')" class="nav-link" data-target="section-running">
+          <span class="nav-num">05</span>
+          <span class="nav-indicator"></span>
+          <span class="nav-text">METABOLIC</span>
+        </button>
+      </nav>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Shrayansh | Computational Biology &amp; Neuroscience" />
-    <meta property="twitter:description" content="Biology student exploring neuroscience, computation, and endurance sports." />
-    <meta property="twitter:image" content="./profile.jpeg" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+      <!-- Sidebar Graphics: Concentric Blueprint Ring Grid -->
+      <div class="sidebar-bottom">
+        <div class="blueprint-container">
+          <svg class="blueprint-svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5">
+            <circle cx="50" cy="50" r="42" stroke-dasharray="1.5 1.5" />
+            <circle cx="50" cy="50" r="32" />
+            <circle cx="53" cy="47" r="22" />
+            <circle cx="47" cy="53" r="12" />
+            <circle cx="50" cy="50" r="4" fill="currentColor" />
+            <line x1="50" y1="5" x2="50" y2="95" stroke-dasharray="1 1" stroke-width="0.3" />
+            <line x1="5" y1="50" x2="95" y2="50" stroke-dasharray="1 1" stroke-width="0.3" />
+          </svg>
+        </div>
+
+        <!-- Social Index & Coordinates -->
+        <div class="sidebar-socials">
+          <div class="social-links">
+            <a href="https://github.com/tshrayansh" target="_blank" rel="noopener noreferrer">[github]</a>
+            <a href="https://linkedin.com/in/tshrayansh" target="_blank" rel="noopener noreferrer">[linkedin]</a>
+            <a href="mailto:tiwarishrayansh@gmail.com">[email]</a>
+          </div>
+          <div class="copyright">
+            <span>VOL. IV // REF. SHRAYANSH</span>
+            <span>© 2026</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 2. MOBILE VIEW HEADER & FOLDER NAVIGATION -->
+    <div id="mobile-shell">
+      <header id="mobile-header">
+        <div class="mobile-brand">
+          <div class="mobile-name">Shrayansh Tiwari</div>
+          <div class="mobile-title">Computational Biologist & Runner</div>
+        </div>
+        <span class="mobile-coordinates">18.52° N</span>
+      </header>
+
+      <!-- Mobile Tab Switchers -->
+      <div id="mobile-tab-bar">
+        <button onclick="switchMobileTab('section-about')" class="mobile-tab active" id="tab-section-about">[about]</button>
+        <button onclick="switchMobileTab('section-research')" class="mobile-tab" id="tab-section-research">[dossier]</button>
+        <button onclick="switchMobileTab('section-writing')" class="mobile-tab" id="tab-section-writing">[writing]</button>
+        <button onclick="switchMobileTab('section-photography')" class="mobile-tab" id="tab-section-photography">[optics]</button>
+        <button onclick="switchMobileTab('section-running')" class="mobile-tab" id="tab-section-running">[metabolic]</button>
+      </div>
+    </div>
+
+    <!-- 3. SCROLLABLE CONTENT DECK (8 cols on desktop) -->
+    <main id="content-deck">
+
+      <!-- SECTION 01: ABOUT -->
+      <section id="section-about" class="content-section active">
+        <div class="mobile-section-header uppercase font-mono text-[9px] text-[#8a8376] pb-4 mb-8 border-b border-[#3e3a35]">
+          <span>RECORD_ENTRY: 01 // NARRATIVE</span>
+          <span class="float-right">VOL. IV // REF. SHRAYANSH</span>
+        </div>
+
+        <div class="hero-statement">
+          <span class="badge">[ Undergraduate Researcher // BS-MS Dual Degree ]</span>
+          <h2 class="hero-text">
+            I study <span class="italic text-sage">biological networks</span> and build computational systems to simulate life.
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <!-- Biography Text Column -->
+          <div class="about-bio">
+            <p class="bio-dropcap">
+              I am an undergraduate student in biological sciences, working at the interface of computation, neurobiology, and complex systems. I spend my time writing code to simulate cellular mechanisms, building mathematical models of synaptic plasticity, and exploring how networks of simple nodes can yield intelligent behaviors.
+            </p>
+            <p class="bio-text">
+              Beyond the lab, I am an avid trail and marathon runner. I find a deep connection between the physiological boundaries tested in long-distance running and the complex homeostatic systems I study. Whether analyzing DNA sequences or pacing a tempo run, I seek elegance in systems that adapt and endure.
+            </p>
+            <p class="bio-text">
+              This space serves as my digital ledger—a field notebook where my research interests, computational side projects, and film photographs converge. I prefer deep focus, structured books, quiet libraries, and clean engineering.
+            </p>
+          </div>
+
+          <!-- Polaroid Polaroid Frame Column -->
+          <div class="about-photo-wrapper">
+            <!-- Paperclip decoration -->
+            <svg class="paperclip-svg" viewBox="0 0 24 48" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M6 36 V 12 A 6 6 0 0 1 18 12 V 32 A 4 4 0 0 1 10 32 V 16" stroke-linecap="round"></path>
+            </svg>
+            
+            <div class="polaroid-frame">
+              <div class="polaroid-image-container">
+                <img src="./profile.jpeg" alt="Shrayansh Tiwari Profile" class="polaroid-image">
+              </div>
+              <div class="polaroid-caption">
+                Shrayansh // Field Log [PUNE]
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Focus Indices Grid -->
+        <div class="focus-matrix-container border-t border-border-light pt-12">
+          <div class="section-label-small uppercase">// focus_matrix_indices.json</div>
+          
+          <div class="focus-grid">
+            <div class="focus-card">
+              <div class="focus-stamp">BIO</div>
+              <div class="focus-code">// BIO-FOCUS</div>
+              <h4 class="focus-title">Biological Networks</h4>
+              <p class="focus-desc">Analyzing cellular behaviors, biochemical scaling, and neural spike dynamics as emergent complex systems.</p>
+            </div>
+            
+            <div class="focus-card">
+              <div class="focus-stamp">COM</div>
+              <div class="focus-code">// COM-FOCUS</div>
+              <h4 class="focus-title">Algorithmic Engineering</h4>
+              <p class="focus-desc">Writing simulations, cache-optimizing alignment kernels, and developing WebGL botanical grows.</p>
+            </div>
+            
+            <div class="focus-card">
+              <div class="focus-stamp">END</div>
+              <div class="focus-code">// END-FOCUS</div>
+              <h4 class="focus-title">Marathon Pacing</h4>
+              <p class="focus-desc">Testing metabolic thresholds, cellular fatigue curves, and pacing 70+ km weekly run cycles.</p>
+            </div>
+            
+            <div class="focus-card">
+              <div class="focus-stamp">VIS</div>
+              <div class="focus-code">// VIS-FOCUS</div>
+              <h4 class="focus-title">Analog Photography</h4>
+              <p class="focus-desc">Capturing spatial compositions, architectural rules, and biological lattices on silver halide film.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 02: DOSSIER (RESEARCH & ENGINEERING) -->
+      <section id="section-research" class="content-section">
+        <div class="section-header">
+          <span class="section-number">[ SEC. 02 // DOSSIER ]</span>
+          <h3 class="section-title">Research &amp; Engineering</h3>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="research-grid">
+          
+          <!-- Column A: Code & Projects -->
+          <div class="research-col">
+            <div class="col-header">
+              <span class="col-title">// DRY_LAB_CODE_&amp;_SIMULATION</span>
+              <span class="col-meta">[ CATALOG_INDEX ]</span>
+            </div>
+
+            <div class="scrapbook-stack">
+              <!-- Project Card 01 -->
+              <div class="scrapbook-card rotate-1">
+                <div class="card-number">1</div>
+                <div class="card-content">
+                  <span class="card-code">// C-01 // NEUROBIOLOGY SIMULATION</span>
+                  <h4 class="card-title">Hodgkin-Huxley Cortical Circuit Solver</h4>
+                  <p class="card-desc">An interactive numerical solver for the Hodgkin-Huxley equations, modeling action potentials and synaptic integration in small cortical circuits.</p>
+                  
+                  <div class="card-footer">
+                    <div class="card-links">
+                      <a href="https://github.com/tshrayansh" target="_blank" rel="noopener noreferrer">[github]</a>
+                      <a href="https://github.com/tshrayansh" target="_blank" rel="noopener noreferrer">[docs]</a>
+                    </div>
+                    <div class="card-divider-slash">|</div>
+                    <div class="card-tags">
+                      <span>#Python</span> <span>#NumPy</span> <span>#WebAssembly</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Card 02 -->
+              <div class="scrapbook-card rotate-neg-1">
+                <div class="card-number">2</div>
+                <div class="card-content">
+                  <span class="card-code">// C-02 // BIOINFORMATICS TOOL</span>
+                  <h4 class="card-title">Cache-Optimized Sequence Engine</h4>
+                  <p class="card-desc">A low-level C++ refactoring of local and global sequence alignment kernels, utilizing CPU cache optimizations for large-scale genome analysis.</p>
+                  
+                  <div class="card-footer">
+                    <div class="card-links">
+                      <a href="https://github.com/tshrayansh" target="_blank" rel="noopener noreferrer">[github]</a>
+                      <a href="https://github.com/tshrayansh" target="_blank" rel="noopener noreferrer">[paper]</a>
+                    </div>
+                    <div class="card-divider-slash">|</div>
+                    <div class="card-tags">
+                      <span>#C++</span> <span>#SIMD</span> <span>#Vulkan</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Card 03 -->
+              <div class="scrapbook-card rotate-05">
+                <div class="card-number">3</div>
+                <div class="card-content">
+                  <span class="card-code">// C-03 // ALGORITHMIC VISUALIZER</span>
+                  <h4 class="card-title">L-System Organic Growth Solver</h4>
+                  <p class="card-desc">A WebGL particle system simulating structural botanical growths and branching networks using L-System grammar rules and noise algorithms.</p>
+                  
+                  <div class="card-footer">
+                    <div class="card-links">
+                      <a href="https://github.com/tshrayansh" target="_blank" rel="noopener noreferrer">[github]</a>
+                      <a href="https://github.com/tshrayansh" target="_blank" rel="noopener noreferrer">[live site]</a>
+                    </div>
+                    <div class="card-divider-slash">|</div>
+                    <div class="card-tags">
+                      <span>#TypeScript</span> <span>#WebGL</span> <span>#GLSL</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column B: Wet Lab & Academic Dossier -->
+          <div class="research-col xl-pl-6">
+            <div class="space-y-6">
+              <h3 class="col-title border-b border-border-light pb-2">// WET_LAB_&amp;_ACADEMIC_RECORD</h3>
+              
+              <!-- Research Directions -->
+              <div class="research-directions border-b border-dashed border-border-light pb-4">
+                <h4 class="sub-col-title">// ACTIVE_RESEARCH_DIRECTIONS</h4>
+                <ul class="dossier-list-unstyled">
+                  <li>
+                    <span class="list-num">[1]</span>
+                    <span class="list-text">Agent-based modeling of collective biological navigation in complex microfluidic flows.</span>
+                  </li>
+                  <li>
+                    <span class="list-num">[2]</span>
+                    <span class="list-text">Mathematical modeling of synaptic plasticity and calcium-dependent transition states.</span>
+                  </li>
+                  <li>
+                    <span class="list-num">[3]</span>
+                    <span class="list-text">Biogeochemical cycles and metabolic network scaling in closed microbial ecosystems.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Experience Timeline -->
+              <div class="experience-timeline pt-4">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <h4 class="timeline-title">
+                    Research Fellow <span class="timeline-org">at Biophysics Lab, IISER Pune</span>
+                  </h4>
+                  <div class="timeline-date">SUMMER 2025</div>
+                  <p class="timeline-desc">Simulated microbial chemotaxis in structured environments using custom stochastic numerical solvers.</p>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <h4 class="timeline-title">
+                    Teaching Assistant <span class="timeline-org">at Quantitative Biology Course</span>
+                  </h4>
+                  <div class="timeline-date">SPRING 2025</div>
+                  <p class="timeline-desc">Guided students in programming ordinary differential equations and chemical kinetic models in Python.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education & Scholarships -->
+            <div class="academic-splits-grid border-t border-border-light pt-6 mt-6">
+              <div class="academic-split-box">
+                <h4 class="sub-col-title">// EDUCATION</h4>
+                <div class="edu-item">
+                  <div class="edu-institution">IISER Pune</div>
+                  <div class="edu-degree">BS-MS Dual Degree (Biology)</div>
+                  <div class="edu-date">2022 — Present</div>
+                </div>
+              </div>
+
+              <div class="academic-split-box">
+                <h4 class="sub-col-title">// GRANTS</h4>
+                <ul class="dossier-list-bullets">
+                  <li>DST INSPIRE Fellowship (Govt. of India, 2022—Present)</li>
+                  <li>IISER Summer Research Fellowship (SURF, 2025)</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Presentations -->
+            <div class="academic-presentations border-t border-b border-border-light py-4 my-6">
+              <h4 class="sub-col-title">// RESEARCH_PRESENTATIONS</h4>
+              <div class="presentations-list">
+                <div class="presentation-row">
+                  <div>
+                    <h5 class="presentation-title">Modeling Chemotaxis in Fractured Micro-channels</h5>
+                    <div class="presentation-event">National Symposium on Complex Systems, Pune</div>
+                  </div>
+                  <span class="presentation-date">Nov 2025</span>
+                </div>
+                
+                <div class="presentation-row">
+                  <div>
+                    <h5 class="presentation-title">L-Systems and Botanical Morphogenesis</h5>
+                    <div class="presentation-event">Student Seminar Series, Biology Department</div>
+                  </div>
+                  <span class="presentation-date">Apr 2025</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CV Download -->
+            <div class="academic-footer">
+              <div class="academic-disclaimer">* Official curriculum log is registered in PDF format.</div>
+              <a href="./resume.pdf" download class="cv-download-btn font-mono">
+                <span>[ download dossier // cv.pdf ]</span>
+                <span>↓</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 03: WRITING -->
+      <section id="section-writing" class="content-section">
+        <div class="section-header">
+          <span class="section-number">[ SEC. 03 // WRITING ]</span>
+          <h3 class="section-title">Tomes &amp; Folios</h3>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="writing-stack">
+          <!-- Article 01 -->
+          <article class="writing-row">
+            <div class="writing-meta">
+              <div class="writing-date">JUNE 15, 2026</div>
+              <div class="writing-readtime">6 MIN READ</div>
+            </div>
+            <div class="writing-content">
+              <h4 class="writing-title">
+                <a href="https://medium.com" target="_blank" rel="noopener noreferrer">The Mathematics of Memory: Modeling Synaptic Strengths</a>
+              </h4>
+              <p class="writing-summary">
+                An exploration of how differential equations and chemical kinetics can help us model long-term potentiation in the mammalian hippocampus.
+              </p>
+            </div>
+          </article>
+
+          <!-- Article 02 -->
+          <article class="writing-row">
+            <div class="writing-meta">
+              <div class="writing-date">APRIL 02, 2026</div>
+              <div class="writing-readtime">9 MIN READ</div>
+            </div>
+            <div class="writing-content">
+              <h4 class="writing-title">
+                <a href="https://medium.com" target="_blank" rel="noopener noreferrer">Entropy, Information, and the Definition of Life</a>
+              </h4>
+              <p class="writing-summary">
+                A philosophical and mathematical bridge between thermodynamic entropy, Shannon information, and biological self-organization.
+              </p>
+            </div>
+          </article>
+
+          <!-- Article 03 -->
+          <article class="writing-row">
+            <div class="writing-meta">
+              <div class="writing-date">JANUARY 11, 2026</div>
+              <div class="writing-readtime">5 MIN READ</div>
+            </div>
+            <div class="writing-content">
+              <h4 class="writing-title">
+                <a href="https://medium.com" target="_blank" rel="noopener noreferrer">Pacing Homeostasis: The Physiology of the Wall</a>
+              </h4>
+              <p class="writing-summary">
+                Analyzing the metabolic transition states during prolonged endurance runs, from glycogen depletion to central nervous system fatigue.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 04: PHOTOGRAPHY -->
+      <section id="section-photography" class="content-section">
+        <div class="section-header">
+          <span class="section-number">[ SEC. 04 // VISUALS ]</span>
+          <h3 class="section-title">Analog Cartography</h3>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="gallery-container">
+          <!-- Masonry grid of photos -->
+          <div class="photo-wall">
+            
+            <div class="photo-card" onclick="openLightbox('./images/biology_macro.png', 'Chlorophyll Lattice', 'Biology // Leica M6 // 50.0mm f/2.0')">
+              <img src="./images/biology_macro.png" alt="Chlorophyll Lattice" class="photo-img">
+              <div class="photo-overlay">
+                <div class="photo-meta">
+                  <span class="photo-title">Chlorophyll Lattice</span>
+                  <span class="photo-specs">Leica M6 // 50.0mm f/2.0</span>
+                </div>
+                <span class="photo-badge">Biology</span>
+              </div>
+            </div>
+
+            <div class="photo-card" onclick="openLightbox('./images/trail_runner.png', 'Ridge Path at Dawn', 'Endurance // Leica M6 // 50.0mm f/2.0')">
+              <img src="./images/trail_runner.png" alt="Ridge Path at Dawn" class="photo-img">
+              <div class="photo-overlay">
+                <div class="photo-meta">
+                  <span class="photo-title">Ridge Path at Dawn</span>
+                  <span class="photo-specs">Leica M6 // 50.0mm f/2.0</span>
+                </div>
+                <span class="photo-badge">Endurance</span>
+              </div>
+            </div>
+
+            <div class="photo-card" onclick="openLightbox('./images/library_books.png', 'Folios & Ink', 'Spaces // Leica M6 // 50.0mm f/2.0')">
+              <img src="./images/library_books.png" alt="Folios & Ink" class="photo-img">
+              <div class="photo-overlay">
+                <div class="photo-meta">
+                  <span class="photo-title">Folios &amp; Ink</span>
+                  <span class="photo-specs">Leica M6 // 50.0mm f/2.0</span>
+                </div>
+                <span class="photo-badge">Spaces</span>
+              </div>
+            </div>
+
+            <div class="photo-card" onclick="openLightbox('./images/camera_lens.png', 'Focal Glass', 'Optics // Leica M6 // 50.0mm f/2.0')">
+              <img src="./images/camera_lens.png" alt="Focal Glass" class="photo-img">
+              <div class="photo-overlay">
+                <div class="photo-meta">
+                  <span class="photo-title">Focal Glass</span>
+                  <span class="photo-specs">Leica M6 // 50.0mm f/2.0</span>
+                </div>
+                <span class="photo-badge">Optics</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 05: RUNNING -->
+      <section id="section-running" class="content-section">
+        <div class="section-header">
+          <span class="section-number">[ SEC. 05 // METABOLICS ]</span>
+          <h3 class="section-title">Endurance Logs</h3>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="running-grid">
+          <!-- Left side: Stats & Highlights -->
+          <div class="running-left">
+            <div class="running-stats-block">
+              <h4 class="sub-col-title">// PHYSIOLOGICAL_PARAMETERS</h4>
+              
+              <div class="running-stats-grid">
+                <div class="stat-box">
+                  <span class="stat-label">Weekly Volume</span>
+                  <span class="stat-value">70–80 km</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Personal Best (42.2k)</span>
+                  <span class="stat-value">2:58:45</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Events Paced</span>
+                  <span class="stat-value">2 Completed</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-label">Target Event</span>
+                  <span class="stat-value text-sm leading-tight block pt-0.5">Berlin Marathon (Sept 2026)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="running-highlights-block pt-6">
+              <h4 class="sub-col-title">// ATHLETIC_HIGHLIGHTS</h4>
+              <ul class="dossier-list-unstyled">
+                <li>
+                  <span class="list-num">[1]</span>
+                  <span class="list-text">Active organizer of the Ascent Run Club in Pune, hosting weekly track sessions and trail runs.</span>
+                </li>
+                <li>
+                  <span class="list-num">[2]</span>
+                  <span class="list-text">Finished local mountain marathon (2,100m elevation gain) in 4th place overall.</span>
+                </li>
+                <li>
+                  <span class="list-num">[3]</span>
+                  <span class="list-text">Currently analyzing running gait biomechanics using open-source video analysis scripts.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right side: Strava Frame -->
+          <div class="running-right">
+            <h4 class="sub-col-title">// STRAVA_WIDGETS_FRAME</h4>
+            
+            <div class="strava-placeholder">
+              <div class="strava-gps-icon">GPS</div>
+              <div class="strava-header">
+                <h5 class="strava-title">Active Strava Embed Frame</h5>
+                <p class="strava-desc">
+                  [ Ready for summary widgets: height='160' &amp; latest activity feed widgets: height='454' ]
+                </p>
+              </div>
+              
+              <div class="strava-code-box font-mono">
+                <code>&lt;!-- Place your Strava iframe widgets here later --&gt;
+&lt;iframe height='160' width='300' frameborder='0' src='https://www.strava.com/athletes/.../activity-summary/...' /&gt;</code>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- 4. PERSISTENT LIGHTBOX MODAL -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Zoomed Photo">
+    <div id="lightbox-caption">
+      <div id="lightbox-title">Photo Title</div>
+      <div id="lightbox-specs">Camera Specs</div>
+    </div>
+  </div>
+
+  <!-- Script logic -->
+  <script src="./app.js"></script>
+</body>
 </html>
-
